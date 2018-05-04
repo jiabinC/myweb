@@ -31,15 +31,51 @@
 		</dependency>
 
 		<dependency>
+			<groupId>sqlServer</groupId>
+			<artifactId>jdbc</artifactId>
+			<version>6.0</version>
+
+		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>com.microsoft.sqlserver</groupId>-->
+			<!--<artifactId>sqljdbc4</artifactId>-->
+
+		<!--</dependency>-->
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 
+		<!--<dependency>-->
+			<!--<groupId>com.microsoft.sqlserver</groupId>-->
+			<!--<artifactId>mssql-jdbc</artifactId>-->
+			<!--<scope>runtime</scope>-->
+		<!--</dependency>-->
+
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-starter-jdbc</artifactId>-->
+		<!--</dependency>-->
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jdbc</artifactId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+
 		</dependency>
+
+
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-data-jpa</artifactId>
+	</dependency>
+	<!--<dependency>-->
+		<!--<groupId>com.fasterxml.jackson.core</groupId>-->
+		<!--<artifactId>jackson-annotations</artifactId>-->
+
+	<!--</dependency>-->
 
 	</dependencies>
 
