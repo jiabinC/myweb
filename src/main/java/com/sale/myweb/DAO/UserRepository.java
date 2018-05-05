@@ -1,4 +1,4 @@
-package com.sale.myweb.services;
+package com.sale.myweb.DAO;
 
 
         import com.sale.myweb.entity.Users;
