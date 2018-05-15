@@ -23,6 +23,7 @@ public class ControllerTest {
     public List test() {
         userRepository.save(new Users("dada", 132));
         userRepository.save(new Users("dadaa", 132));
+        userRepository.save(new Users("DADA",12));
         String s = userRepository.toString();
         List user = userRepository.findAll();
 

@@ -13,10 +13,14 @@ public class Users implements Serializable {
         this.name = name;
         this.age = age;
     }
+    Users(){
+
+    }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @GenericGenerator(name = "system-uuid", strategy = "uuid")
+    @GeneratedValue(generator = "system-uuid")
+    private String id;
 
     @Column(nullable = false)
     private String name;
@@ -42,7 +46,7 @@ public class Users implements Serializable {
         return age;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
