@@ -19,10 +19,10 @@ public class ApplicationTests {
     public void test() throws Exception {
 
         // 创建10条记录
-        userRepository.save(new Users("AAA", 10));
-        userRepository.save(new Users("BBB", 20));
-        userRepository.save(new Users("CCC", 30));
-        userRepository.save(new Users("DDD", 40));
+//        userRepository.save(new Users("AAA", 10));
+//        userRepository.save(new Users("BBB", 20));
+//        userRepository.save(new Users("CCC", 30));
+//        userRepository.save(new Users("DDD", 40));
 
 
 
