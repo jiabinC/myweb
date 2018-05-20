@@ -15,7 +15,16 @@ import java.io.Serializable;
 @Entity
 public class Cloth implements Serializable {
 
+    public Cloth(String clothImage,String clothDiscount,String clothName,String clothPrice,String clothStore,String clothType) {
+        this.clothDiscount = clothDiscount;
+        this.clothImage = clothImage;
+        this.clothName = clothName;
+        this.clothPrice = clothPrice;
+        this.clothStore = clothStore;
+        this.clothType = clothType;
+    }
 
+    Cloth() {}
 
     @Id
     @GeneratedValue

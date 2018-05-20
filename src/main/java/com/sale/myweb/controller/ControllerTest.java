@@ -1,8 +1,10 @@
 package com.sale.myweb.controller;
 
 import com.sale.myweb.DAO.ClothRepository;
+import com.sale.myweb.entity.Carts;
 import com.sale.myweb.entity.Users;
 import com.sale.myweb.DAO.UserRepository;
+import com.sale.myweb.services.CartsService;
 import com.sale.myweb.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,22 +30,26 @@ public class ControllerTest {
 
     @GetMapping("/user")
     public String test() {
-        userRepository.save(new Users("dada", "123","adad","dad","ada","ada"));
-        userRepository.save(new Users("aaa","dad","dad","ada","22","d"));
-        String s = userRepository.toString();
-        List user = userRepository.findAll();
-       return userService.userLogin(new Users("dada", "123","adad","dad","ada","ada"));
+        return userService.userRegister(new Users("aaa","aaa","aaa","aaa","男","ddd"));
 
 
 
     }
 
+
     @Autowired
     ClothRepository clothRepository;
+    CartsService cartsService;
 
     @GetMapping("/cloth")
     public List test1() {
         return clothRepository.findAll();
 
     }
+//    @GetMapping("/addCarts")
+//    public List test2(){
+//        cartsService.addClothsToCarts(new Carts("ddd","ddd","ddd"));
+//        return  cartsService.
+//
+//    }
 }

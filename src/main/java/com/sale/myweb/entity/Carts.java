@@ -5,6 +5,8 @@ import org.springframework.data.repository.query.Param;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
+import java.io.Serializable;
 
 /**
  * @author abin
@@ -14,18 +16,29 @@ import javax.persistence.Id;
 
 
 @Entity
-public class Carts {
-    @Id
-    private String cartId;
+@IdClass(CartsIds.class)
+public class Carts implements Serializable {
+    Carts() {
 
-    @Column
+    }
+
+    public Carts(String userId,String clothId,String clothNum) {
+        this.userId = userId;
+        this.clothId = clothId;
+        this.clothNum = clothNum;
+    }
+
+    @Id
+    private String userId;
+
+    @Id
     private String clothId;
 
     @Column
     private String clothNum;
 
-    public String getCartId() {
-        return cartId;
+    public String getUserId() {
+        return userId;
     }
 
     public String getClothId() {
@@ -36,8 +49,8 @@ public class Carts {
         return clothNum;
     }
 
-    public void setCartId(String cartId) {
-        this.cartId = cartId;
+    public void setUserId(String cartId) {
+        this.userId = cartId;
     }
 
     public void setClothId(String clothId) {
@@ -49,3 +62,5 @@ public class Carts {
     }
 
 }
+
+

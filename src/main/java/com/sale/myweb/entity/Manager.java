@@ -4,11 +4,14 @@ package com.sale.myweb.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-public class Manager {
+public class Manager implements Serializable {
+
     @Id
     private  String managerId;
+
     @Column(nullable = false)
     private  String managerPassword;
 

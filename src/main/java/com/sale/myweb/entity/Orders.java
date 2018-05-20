@@ -7,9 +7,21 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-public class Orders {
+public class Orders implements Serializable {
+
+    Orders(){}
+    public Orders(String orderAddress,String orderName,String orderState,String orderTel,String orderTran) {
+        this.orderAddress = orderAddress;
+        this.orderName = orderName;
+        this.orderState = orderState;
+        this.orderTel = orderTel;
+        this.orderTran = orderTran;
+
+    }
+
     @Id
     @GenericGenerator(name="system-uuid",strategy = "uuid")
     @GeneratedValue(generator = "system-uuid")
