@@ -14,9 +14,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    @Autowired
-    UserRepository userRepository;
 
+    //使用构造器注入 可以指定成员变量的加载顺序
+    private  final UserRepository userRepository;
+
+    @Autowired
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+
+    }
     public String userLogin(Users user){
         Users users = userRepository.findByUserName(user.getUserName());
 

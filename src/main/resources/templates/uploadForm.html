@@ -3,24 +3,24 @@
 
 <!--<div th:if="${message}">-->
     <!--<h2 th:text="${message}"/>-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--<h1 th:text="${ddd}"></h1>-->
+<!--<div>-->
+    <!--<form method="POST" enctype="multipart/form-data" action="/">-->
+        <!--<table>-->
+            <!--<tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>-->
+            <!--<tr><td></td><td><input type="submit" value="Upload" /></td></tr>-->
+        <!--</table>-->
+    <!--</form>-->
 <!--</div>-->
-<h1 th:text="${ddd}"></h1>
-<div>
-    <form method="POST" enctype="multipart/form-data" action="/">
-        <table>
-            <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
-            <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
-        </table>
-    </form>
-</div>
 
-<div>
-    <ul>
-        <li th:each="file : ${files}">
-            <a th:href="${file}" th:text="${file}" />
-        </li>
-    </ul>
-</div>
-
+<!--<div>-->
+    <!--<ul>-->
+        <!--<li th:each="file : ${files}">-->
+            <!--<a th:href="${file}" th:text="${file}" />-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+<img th:src="@{/img/1.jpg}">
 </body>
 </html>

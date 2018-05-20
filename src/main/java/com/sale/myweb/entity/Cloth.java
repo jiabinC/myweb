@@ -1,4 +1,9 @@
 package com.sale.myweb.entity;
+/**
+ * @author abin
+ * @date 2018/5/19 23:07
+ * @version 1.0
+ */
 
 
 import javax.persistence.Column;
@@ -14,69 +19,80 @@ public class Cloth implements Serializable {
 
     @Id
     @GeneratedValue
-    private String cId;
+    private String clothId;
 
     @Column(nullable = false)
-    private  String cImage;
+    private  String clothImage;
 
     @Column(nullable = false)
-    private String cName;
+    private String clothName;
 
     @Column(nullable = false)
-    private  String cPrice;
+    private  String clothPrice;
 
     @Column(nullable = false)
-    private  String cDiscount;
+    private  String clothDiscount;
 
     @Column(nullable = false)
-    private  String cStore;
+    private  String clothStore;
+
+    @Column(nullable = false)
+    private String clothType;
 
 
-    public String getcDiscount() {
-        return cDiscount;
+    public String getClothDiscount() {
+        return clothDiscount;
     }
 
-    public String getcId() {
-        return cId;
+    public String getClothId() {
+        return clothId;
     }
 
-    public String getcImage() {
-        return cImage;
+    public String getClothImage() {
+        return clothImage;
     }
 
-    public String getcName() {
-        return cName;
+    public String getClothName() {
+        return clothName;
     }
 
-    public String getcPrice() {
-        return cPrice;
+    public String getClothPrice() {
+        return clothPrice;
     }
 
-    public String getcStore() {
-        return cStore;
+    public String getClothStore() {
+        return clothStore;
     }
 
-    public void setcDiscount(String cDiscount) {
-        this.cDiscount = cDiscount;
+    public void setClothDiscount(String cDiscount) {
+        this.clothDiscount = cDiscount;
     }
 
-    public void setcImage(String cImage) {
-        this.cImage = cImage;
+    public void setClothImage(String cImage) {
+        this.clothImage = cImage;
     }
 
-    public void setcId(String cId) {
-        this.cId = cId;
+    public void setClothId(String cId) {
+        this.clothId = cId;
     }
 
-    public void setcName(String cName) {
-        this.cName = cName;
+    public void setClothName(String cName) {
+        this.clothName = cName;
     }
 
-    public void setcPrice(String cPrice) {
-        this.cPrice = cPrice;
+    public void setClothPrice(String cPrice) {
+        this.clothPrice = cPrice;
     }
 
-    public void setcStore(String cStore) {
-        this.cStore = cStore;
+    public void setClothStore(String cStore) {
+        this.clothStore = cStore;
+    }
+
+    public String getClothType() {
+        return clothType;
+    }
+
+    public void setClothType(String clothType) {
+        this.clothType = clothType;
     }
 }
