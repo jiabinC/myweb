@@ -16,7 +16,7 @@ import java.util.List;
  * @date 2018/5/15 18:25
  */
 
-@RestController
+@Controller
 public class CommoditController {
 
     @Autowired
