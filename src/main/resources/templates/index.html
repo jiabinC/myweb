@@ -136,118 +136,75 @@
 
     <main class="showindex__gallerycardwrap">
             <div class="showindex__parent">
-                <div class="showindex__children">
-                    <a class="album3__main" data-album-id="13597163" title="镂空长裙" href="./inside.html">
+                <div th:each="cloth:${allCloths}" class="showindex__children">
+                    <a class="album3__main" data-album-id="13597163" th:title="${cloth.clothName}" href="./inside.html">
                         <div class="album__imgwrap">
-                            <img alt="" data-type="photo" class="album__absolute album__img autocover" th:src="@{/img/1.jpg}" data-origin-src="">
+                            <img alt="" data-type="photo" class="album__absolute album__img autocover" th:src="@{{url}(url=${cloth.clothImage})}" data-origin-src="">
                             <i class="album__space"></i>
                             <!--<div class="text_overflow album__photonumber">11</div>-->
                         </div>
-                        <div class="album3__photoswrap">
-                                <!--<img alt="" data-album-id="13597163" class="album3__img" style="" title="镂空长裙" data-src="" src="./spm_files/square.jpeg" data-origin-src="">-->
+                            <div class="album3__photoswrap">
+                            <!--<img alt="" data-album-id="13597163" class="album3__img" style="" title="镂空长裙" data-src="" src="./spm_files/square.jpeg" data-origin-src="">-->
+                            <!--<img alt="" data-album-id="13597163" class="album3__img" title="QQ图片20180503164620.jpg" data-src="" src="./spm_files/square(1).jpeg" data-origin-src="" style="">-->
+                            <!--<img alt="" data-album-id="13597163" class="album3__img" title="IMG_7968.JPG" data-src="" src="./spm_files/square(2).jpeg" data-origin-src="">-->
+                            <!--<img alt="" data-album-id="13597163" class="album3__img" title="IMG_7967.JPG" data-src="" src="./spm_files/square(3).jpeg" data-origin-src="" style="padding: 0px; border: 2px solid;"></div>-->
+                            <!--<div class="album3__title">  -->
+                        </div>
+                        <div class="album3__title">
+                            <p th:text="${cloth.clothName}"></p>
+                            <p th:text="'￥'+${cloth.clothPrice}" style="color: #e60012"></p>
+                        </div>
+                    </a>
+                </div>
 
-                         </div>
-                        <div class="album3__title">镂空长裙</div>
-                    </a>
-                </div>
-                <div class="showindex__children">
-                    <a class="album3__main" data-album-id="13597163" title="镂空长裙" href="./inside.html">
-                        <div class="album__imgwrap">
-                            <img alt="" data-type="photo" class="album__absolute album__img autocover" src="./spm_files/1.jpg" data-origin-src="">
-                            <i class="album__space"></i>
-                            <!--<div class="text_overflow album__photonumber">11</div>-->
-                        </div>
-                        <!--<div class="album3__photoswrap">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" style="" title="镂空长裙" data-src="" src="./spm_files/square.jpeg" data-origin-src="">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="QQ图片20180503164620.jpg" data-src="" src="./spm_files/square(1).jpeg" data-origin-src="" style="">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="IMG_7968.JPG" data-src="" src="./spm_files/square(2).jpeg" data-origin-src="">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="IMG_7967.JPG" data-src="" src="./spm_files/square(3).jpeg" data-origin-src="" style="padding: 0px; border: 2px solid;">-->
-                        <!--</div>-->
-                        <div class="album3__title">镂空长裙</div>
-                    </a>
-                </div>
-                <div class="showindex__children">
-                    <a class="album3__main" data-album-id="13597163" title="镂空长裙" href="./inside.html">
-                        <div class="album__imgwrap">
-                            <img alt="" data-type="photo" class="album__absolute album__img autocover" src="./spm_files/1.jpg" data-origin-src="">
-                            <i class="album__space"></i>
-                            <!--<div class="text_overflow album__photonumber">11</div>-->
-                        </div>
-                        <!--<div class="album3__photoswrap">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" style="" title="镂空长裙" data-src="" src="./spm_files/square.jpeg" data-origin-src="">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="QQ图片20180503164620.jpg" data-src="" src="./spm_files/square(1).jpeg" data-origin-src="" style="">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="IMG_7968.JPG" data-src="" src="./spm_files/square(2).jpeg" data-origin-src="">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="IMG_7967.JPG" data-src="" src="./spm_files/square(3).jpeg" data-origin-src="" style="padding: 0px; border: 2px solid;">-->
-                        <!--</div>-->
-                        <div class="album3__title">镂空长裙</div>
-                    </a>
-                </div>
-                <div class="showindex__children">
-                    <a class="album3__main" data-album-id="13597163" title="镂空长裙" href="./inside.html">
-                        <div class="album__imgwrap">
-                            <img alt="" data-type="photo" class="album__absolute album__img autocover" src="./spm_files/1.jpg" data-origin-src="">
-                            <i class="album__space"></i>
-                            <!--<div class="text_overflow album__photonumber">11</div>-->
-                        </div>
-                        <!--<div class="album3__photoswrap">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" style="" title="镂空长裙" data-src="" src="./spm_files/square.jpeg" data-origin-src="">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="QQ图片20180503164620.jpg" data-src="" src="./spm_files/square(1).jpeg" data-origin-src="" style="">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="IMG_7968.JPG" data-src="" src="./spm_files/square(2).jpeg" data-origin-src="">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="IMG_7967.JPG" data-src="" src="./spm_files/square(3).jpeg" data-origin-src="" style="padding: 0px; border: 2px solid;">-->
-                        <!--</div>-->
-                        <div class="album3__title">镂空长裙</div>
-                    </a>
-                </div>
-                <div class="showindex__children">
-                    <a class="album3__main" data-album-id="13597163" title="镂空长裙" href="./inside.html">
-                        <div class="album__imgwrap">
-                            <img alt="" data-type="photo" class="album__absolute album__img autocover" src="./spm_files/1.jpg" data-origin-src="">
-                            <i class="album__space"></i>
-                            <!--<div class="text_overflow album__photonumber">11</div>-->
-                        </div>
-                        <!--<div class="album3__photoswrap">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" style="" title="镂空长裙" data-src="" src="./spm_files/square.jpeg" data-origin-src="">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="QQ图片20180503164620.jpg" data-src="" src="./spm_files/square(1).jpeg" data-origin-src="" style="">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="IMG_7968.JPG" data-src="" src="./spm_files/square(2).jpeg" data-origin-src="">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="IMG_7967.JPG" data-src="" src="./spm_files/square(3).jpeg" data-origin-src="" style="padding: 0px; border: 2px solid;">-->
-                        <!--</div>-->
-                        <div class="album3__title">镂空长裙</div>
-                    </a>
-                </div>
-                <div class="showindex__children">
-                    <a class="album3__main" data-album-id="13597163" title="镂空长裙" href="./inside.html">
-                        <div class="album__imgwrap">
-                            <img alt="" data-type="photo" class="album__absolute album__img autocover" src="./spm_files/1.jpg" data-origin-src="">
-                            <i class="album__space"></i>
-                            <!--<div class="text_overflow album__photonumber">11</div>-->
-                        </div>
-                        <!--<div class="album3__photoswrap">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" style="" title="镂空长裙" data-src="" src="./spm_files/square.jpeg" data-origin-src="">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="QQ图片20180503164620.jpg" data-src="" src="./spm_files/square(1).jpeg" data-origin-src="" style="">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="IMG_7968.JPG" data-src="" src="./spm_files/square(2).jpeg" data-origin-src="">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="IMG_7967.JPG" data-src="" src="./spm_files/square(3).jpeg" data-origin-src="" style="padding: 0px; border: 2px solid;">-->
-                        <!--</div>-->
-                        <div class="album3__title">镂空长裙</div>
-                    </a>
-                </div>
-                <div class="showindex__children">
-                    <a class="album3__main" data-album-id="13597163" title="镂空长裙" href="./inside.html">
-                        <div class="album__imgwrap">
-                            <img alt="" data-type="photo" class="album__absolute album__img autocover" src="./spm_files/1.jpg" data-origin-src="">
-                            <i class="album__space"></i>
-                            <!--<div class="text_overflow album__photonumber">11</div>-->
-                        </div>
-                        <!--<div class="album3__photoswrap">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" style="" title="镂空长裙" data-src="" src="./spm_files/square.jpeg" data-origin-src="">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="QQ图片20180503164620.jpg" data-src="" src="./spm_files/square(1).jpeg" data-origin-src="" style="">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="IMG_7968.JPG" data-src="" src="./spm_files/square(2).jpeg" data-origin-src="">-->
-                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="IMG_7967.JPG" data-src="" src="./spm_files/square(3).jpeg" data-origin-src="" style="padding: 0px; border: 2px solid;">-->
-                        <!--</div>-->
-                        <div class="album3__title">镂空长裙</div>
-                    </a>
-                </div>
 
             </div>
+            <div class="showindex__parent">
+            <div class="showindex__children">
+                <a class="album3__main" data-album-id="13597163" title="镂空长裙" href="./inside.html">
+                    <div class="album__imgwrap">
+                        <img alt="" data-type="photo" class="album__absolute album__img autocover" th:src="@{/img/1.jpg}" data-origin-src="">
+                        <i class="album__space"></i>
+                        <!--<div class="text_overflow album__photonumber">11</div>-->
+                    </div>
+                    <div class="album3__photoswrap">
+                        <!--<img alt="" data-album-id="13597163" class="album3__img" style="" title="镂空长裙" data-src="" th:src="@{/img/1.jpg}" data-origin-src="">-->
+                        <!--<img alt="" data-album-id="13597163" class="album3__img" style="" title="镂空长裙" data-src="" th:src="@{/img/1.jpg}" data-origin-src="">-->
+                        <!--<img alt="" data-album-id="13597163" class="album3__img" style="" title="镂空长裙" data-src="" th:src="@{/img/1.jpg}" data-origin-src="">-->
+                    </div>
+                    <div class="album3__title">
+                        <p>333</p>
+                        <p>21</p>
+                        <p>21</p>
+                    </div>
+                </a>
+            </div>
+
+
+
+            <div th:each="cloth:${allCloths}" class="showindex__children">
+                <a class="album3__main" data-album-id="13597163" th:title="${cloth.clothName}" href="./inside.html">
+                    <div class="album__imgwrap">
+                        <img alt="" data-type="photo" class="album__absolute album__img autocover" th:src="@{{url}(url=${cloth.clothImage})}" data-origin-src="">
+                        <i class="album__space"></i>
+                        <!--<div class="text_overflow album__photonumber">11</div>-->
+                    </div>
+                    <div class="album3__photoswrap">
+                        <!--<img alt="" data-album-id="13597163" class="album3__img" style="" title="镂空长裙" data-src="" src="./spm_files/square.jpeg" data-origin-src="">-->
+                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="QQ图片20180503164620.jpg" data-src="" src="./spm_files/square(1).jpeg" data-origin-src="" style="">-->
+                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="IMG_7968.JPG" data-src="" src="./spm_files/square(2).jpeg" data-origin-src="">-->
+                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="IMG_7967.JPG" data-src="" src="./spm_files/square(3).jpeg" data-origin-src="" style="padding: 0px; border: 2px solid;"></div>-->
+                        <!--<div class="album3__title">  -->
+                    </div>
+                    <div class="album3__title">
+                        <p th:text="${cloth.clothName}"></p>
+                        <p th:text="'￥'+${cloth.clothPrice}" style="color: #e60012"></p>
+                    </div>
+                </a>
+            </div>
+
+
+        </div>
     </main>
 <div class="showlayout__wrap">
 
