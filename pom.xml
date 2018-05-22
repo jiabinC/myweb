@@ -32,12 +32,12 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>sqlServer</groupId>
-			<artifactId>jdbc</artifactId>
-			<version>6.0</version>
+		<!--<dependency>-->
+			<!--<groupId>sqlServer</groupId>-->
+			<!--<artifactId>jdbc</artifactId>-->
+			<!--<version>6.0</version>-->
 
-		</dependency>
+		<!--</dependency>-->
 		<!--<dependency>-->
 			<!--<groupId>com.microsoft.sqlserver</groupId>-->
 			<!--<artifactId>sqljdbc4</artifactId>-->
@@ -50,11 +50,11 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!--<dependency>-->
-			<!--<groupId>com.microsoft.sqlserver</groupId>-->
-			<!--<artifactId>mssql-jdbc</artifactId>-->
-			<!--<scope>runtime</scope>-->
-		<!--</dependency>-->
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 
 		<!--<dependency>-->
 			<!--<groupId>org.springframework.boot</groupId>-->
@@ -76,11 +76,11 @@
 
 
 		<!--热部署-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-devtools</artifactId>
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-starter-devtools</artifactId>-->
 
-		</dependency>
+		<!--</dependency>-->
 
 	<!--使用JPA访问数据库-->
 	<dependency>
