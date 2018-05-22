@@ -16,7 +16,7 @@
 
 <script type="text/javascript" class="nc-required-js-3 nc-uab-script" src="./regis_files/awsc.js.下载"></script><script src="./regis_files/initialize.jsonp"></script><script type="text/javascript" class="nc-required-js-2 nc-uab-script" src="./regis_files/awsc.js.下载"></script><script src="./regis_files/initialize(1).jsonp"></script><script src="./regis_files/108.js.下载" id="AWSC_uabModule"></script><script type="text/javascript" class="nc-required-js-1 nc-umid-script" src="./regis_files/um.js.下载"></script><script type="text/javascript" class="nc-required-js-1 nc-uab-script" src="./regis_files/awsc.js(1).下载"></script><script src="./regis_files/initialize(2).jsonp"></script><script type="text/javascript">
         function check(){
-            if (document.regForm.userPassword.valueOf() != document.regForm.confirm.valueOf()) {
+            if (document.regForm.userPassword.value != document.regForm.confirm.value) {
                 alert("两次输入密码不一样！");
                 return false;
             }
@@ -93,6 +93,8 @@
 
         <form class="login__form" th:action="@{/register}" method="post" th:object="${users}" name="regForm" onsubmit=" return check();">
             <div class="login__tipswrap"><!-- react-empty: 460 -->
+                <div th:text="${result}" style="color: red"></div>
+                <div><br/></div>
             </div><input type="password" style="display: none;">
             <div class="
         undefined
