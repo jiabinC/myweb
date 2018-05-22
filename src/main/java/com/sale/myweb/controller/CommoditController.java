@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,8 +33,8 @@ public class CommoditController {
 
 
     @GetMapping("/index")
-    public String index(ModelMap model) {
-
+    public String index(ModelMap model, HttpSession session) {
+       model.addAttribute("users",session.getAttribute("user"));
         model.addAttribute("allTypes",clothService.findAllTypes());
         model.addAttribute("allCloths",clothService.getAllCloth());
 

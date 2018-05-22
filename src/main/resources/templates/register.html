@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="zh-CN" data-accept-language="zh-CN,zh;q=0.9,en;q=0.8" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<html lang="zh-CN" data-accept-language="zh-CN,zh;q=0.9,en;q=0.8" xmlns:th="http://www.w3.org/1999/xhtml">
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- weinre --boundHost 10.0.3.88 --httpPort 9999 #weinre --help  -->
     <!-- <script src="http://10.0.3.88:9999/target/target-script-min.js#anonymous"></script>  -->
@@ -15,6 +15,12 @@
     <title>注册 |三匹马</title>
 
 <script type="text/javascript" class="nc-required-js-3 nc-uab-script" src="./regis_files/awsc.js.下载"></script><script src="./regis_files/initialize.jsonp"></script><script type="text/javascript" class="nc-required-js-2 nc-uab-script" src="./regis_files/awsc.js.下载"></script><script src="./regis_files/initialize(1).jsonp"></script><script src="./regis_files/108.js.下载" id="AWSC_uabModule"></script><script type="text/javascript" class="nc-required-js-1 nc-umid-script" src="./regis_files/um.js.下载"></script><script type="text/javascript" class="nc-required-js-1 nc-uab-script" src="./regis_files/awsc.js(1).下载"></script><script src="./regis_files/initialize(2).jsonp"></script><script type="text/javascript">
+        function check(){
+            if (document.regForm.userPassword.valueOf() != document.regForm.confirm.valueOf()) {
+                alert("两次输入密码不一样！");
+                return false;
+            }
+        }
   window.ga = function () {
     (ga.q = ga.q || []).push(arguments);
   };
@@ -35,7 +41,7 @@
   window.initInnerHeight = window.innerHeight;
   window.initRenderHref = window.location.href;
 </script>
-<link class="dynamic" rel="stylesheet" data-href="/style.css" href="./regis_files/style.css">
+<link class="dynamic" rel="stylesheet" data-href="/style.css" th:href="@{/css/style.css}">
 <script class="dynamic" type="text/javascript" data-src="/main.js" src="./regis_files/main.js.下载"></script> 
 
 <script type="text/javascript" charset="utf-8" async="" src="./regis_files/auth.chunk.js.下载"></script><style>@charset "utf-8";
@@ -77,19 +83,26 @@
         undefined
         false
         false
-        animate__startAnimate" id="t_2" required="" rows="10"></textarea></div></div></div><div class="Modal__actions"><button class="none_select undefined Ripple__main undefined"><!-- react-text: 22 -->提交<!-- /react-text --></button></div></div></div><div class="none_select AppTopBar__menu Ripple__main Ripple__overflow" title="菜单"><i class="AppTopBar__icon_menu null font_icon_13"></i></div><div class="AppTopBar__logo" data-text=""><a title="" class="none_select false Ripple__main Ripple__overflow" href="index.html"><img th:src="@{/img/spm2.jpg}" alt="spm"></a></div><div class="AppTopBar__login AppTopBar__tips"><a href="login.html">登录</a><span role="separator" class="AppTopBar__separator"></span><a href="regis.html" class="AppTopBar__active">注册</a></div></div><div class="
+        animate__startAnimate" id="t_2" required="" rows="10"></textarea></div></div></div><div class="Modal__actions"><button class="none_select undefined Ripple__main undefined"><!-- react-text: 22 -->提交<!-- /react-text --></button></div></div></div><div class="none_select AppTopBar__menu Ripple__main Ripple__overflow" title="菜单"><i class="AppTopBar__icon_menu null font_icon_13"></i></div><div class="AppTopBar__logo" data-text=""><a title="" class="none_select false Ripple__main Ripple__overflow" th:href="@{/index}"><img th:src="@{/img/spm2.jpg}" alt="spm"></a></div><div class="AppTopBar__login AppTopBar__tips"><a th:href="@{/login}">登录</a><span role="separator" class="AppTopBar__separator"></span><a th:href="@{/register}" class="AppTopBar__active">注册</a></div></div><div class="
           Hint__hidden
           Hint__main
           Hint__opacity
           false
         "><div role="tooltip" class="null Hint__hint
-          ">Null</div></div><main class="login__main"><div class="login__space"></div><form class="login__form"><div class="login__tipswrap"><!-- react-empty: 460 --></div><input type="password" style="display: none;"><div class="
+          ">Null</div></div><main class="login__main"><div class="login__space"></div>
+
+        <form class="login__form" th:action="@{/register}" method="post" th:object="${users}" name="regForm" onsubmit=" return check();">
+            <div class="login__tipswrap"><!-- react-empty: 460 -->
+            </div><input type="password" style="display: none;">
+            <div class="
         undefined
         Input__tdmiddle
         false
         Input__main
         login__input
-        false"><label for="t_username" class="displaynone">用户名</label><div class="
+        false">
+                <label for="t_username" class="displaynone">用户名</label>
+                <div class="
           Input__inputwrap
           Input__td
           false
@@ -101,17 +114,21 @@
         undefined
         false
         false
-        animate__startAnimate" pattern="(?:^[a-z]|[0-9])([a-z]|[0-9]|-){2,30}[a-z0-9]$" placeholder="用户名" id="t_username" name="username" required="" autocomplete="off" autocapitalize="none" value=""></div><div class="Input__td Input__labeled"><span><!-- react-text: 470 -->.<!-- /react-text --><!-- react-text: 471 -->spm.com<!-- /react-text --></span></div></div><div class="
+        animate__startAnimate"  placeholder="用户名" id="t_username" name="userName" required="" autocomplete="off" autocapitalize="none" value=""></div><div class="Input__td Input__labeled"><span><!-- react-text: 470 -->.<!-- /react-text --><!-- react-text: 471 -->spm.com<!-- /react-text --></span></div></div>
+
+        <div class="
         undefined
         Input__tdmiddle
         false
         Input__main
         login__input
-        false"><label for="t_email" class="displaynone">邮箱</label><div class="
+        false">
+            <label for="t_tel" class="displaynone">电话号码</label>
+            <div class="
           Input__inputwrap
           undefined
           Input__fullwidth
-          undefined"><svg class="font_icon_16 Input__icon undefined"><use xlink:href="#svg_sprite_email"></use></svg><input type="email" class="
+          undefined"><svg class="font_icon_16 Input__icon undefined"></svg><input type="text" class="
         custom_scrollbar
         undefined
         Input__input
@@ -119,7 +136,71 @@
         undefined
         false
         false
-        animate__startAnimate" pattern="^[a-z0-9]+([._\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$" placeholder="邮箱" id="t_email" name="email" required="" autocomplete="off" value=""></div></div><div class="
+        animate__startAnimate"  placeholder="电话号码" id="t_tel" name="userTel" required="" autocomplete="off" value=""></div></div>
+            <div class="
+        undefined
+        Input__tdmiddle
+        false
+        Input__main
+        login__input
+        false">
+                <label for="t_addr" class="displaynone">地址</label>
+                <div class="
+          Input__inputwrap
+          undefined
+          Input__fullwidth
+          undefined"><svg class="font_icon_16 Input__icon undefined"></svg><input type="text" class="
+        custom_scrollbar
+        undefined
+        Input__input
+        undefined
+        undefined
+        false
+        false
+        animate__startAnimate"  placeholder="地址" id="t_addr" name="userAddress" required="" autocomplete="off" value=""></div></div>
+            <div class="
+        undefined
+        Input__tdmiddle
+        false
+        Input__main
+        login__input
+        false">
+                <label for="t_sex" class="displaynone">性别</label>
+                <div class="
+          Input__inputwrap
+          undefined
+          Input__fullwidth
+          undefined"><svg class="font_icon_16 Input__icon undefined"></svg><input type="text" class="
+        custom_scrollbar
+        undefined
+        Input__input
+        undefined
+        undefined
+        false
+        false
+        animate__startAnimate"  placeholder="性别" id="t_sex" name="userSex" required="" autocomplete="off" value=""></div></div>
+            <div class="
+        undefined
+        Input__tdmiddle
+        false
+        Input__main
+        login__input
+        false">
+                <label for="t_age" class="displaynone">年龄</label>
+                <div class="
+          Input__inputwrap
+          undefined
+          Input__fullwidth
+          undefined"><svg class="font_icon_16 Input__icon undefined"></svg><input type="text" class="
+        custom_scrollbar
+        undefined
+        Input__input
+        undefined
+        undefined
+        false
+        false
+        animate__startAnimate"  placeholder="年龄" id="t_age" name="userAge" required="" autocomplete="off" value=""></div></div>
+            <div class="
         undefined
         Input__tdmiddle
         false
@@ -137,7 +218,7 @@
         undefined
         false
         false
-        animate__startAnimate" pattern=".{6,32}" placeholder="密码" id="t_password" name="password" required="" autocomplete="off" value=""></div></div><div class="
+        animate__startAnimate" pattern=".{6,32}" placeholder="密码" id="t_password" name="userPassword" required="" autocomplete="off" value=""></div></div><div class="
         undefined
         Input__tdmiddle
         false
@@ -166,7 +247,10 @@
 <div id="nc_3_wrapper" class="nc_wrapper">
 <div id="nc_3__voice" class="nc_voice"></div>
 </div>
-</div><button class="alone reverse login__button null" type="submit">注册</button><div></div><p class="login__relatedlink"><!-- react-text: 506 -->已有账号？<!-- /react-text --><!-- react-text: 507 --> <!-- /react-text --><a class="clickable" href="login.html">登录</a></p></form><div class="login__links"></div></main><div tabindex="0" data-noautoblur="true" class="Modal__backdrop backdrop Modal__noafter undefined"></div><div class="undefined animate__mobileStartAnimate animate__fade Alert__backdrop backdrop"><div role="alertdialog" class="Alert__alert"><div class="Alert__icon Alert__success"><svg class="A_Success__svg undefined" viewBox="0 0 100 100"><g transform="translate(-48.913488,44.432998)"><path class="A_Success__circle" stroke-width="8.23575687" stroke-linecap="round" fill="none" stroke="#000" d="m 142.57137,-8.5855493 c 1.44397,4.457575 2.22424,9.21394314 2.22424,14.1525506 0,25.3399947 -20.54213,45.8821207 -45.882121,45.8821207 -25.339997,2e-6 -45.882123,-20.542124 -45.882123,-45.8821207 0,-25.3399973 20.542126,-45.8821203 45.882123,-45.8821203 10.074581,0 19.390771,3.247027 26.959161,8.75166"></path><path class="A_Success__affair" stroke-width="8.23575687" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000" d="M 136.35222,-18.562557 87.080107,21.098347 70.668697,0.70988734"></path></g></svg></div><div class="Alert__contentwrap"></div></div></div><div class="
+</div><button class="alone reverse login__button null" type="submit">注册</button><div></div><p class="login__relatedlink"><!-- react-text: 506 -->已有账号？<!-- /react-text --><!-- react-text: 507 --> <!-- /react-text --><a class="clickable" th:href="@{/login}">登录</a></p></form>
+
+
+        <div class="login__links"></div></main><div tabindex="0" data-noautoblur="true" class="Modal__backdrop backdrop Modal__noafter undefined"></div><div class="undefined animate__mobileStartAnimate animate__fade Alert__backdrop backdrop"><div role="alertdialog" class="Alert__alert"><div class="Alert__icon Alert__success"><svg class="A_Success__svg undefined" viewBox="0 0 100 100"><g transform="translate(-48.913488,44.432998)"><path class="A_Success__circle" stroke-width="8.23575687" stroke-linecap="round" fill="none" stroke="#000" d="m 142.57137,-8.5855493 c 1.44397,4.457575 2.22424,9.21394314 2.22424,14.1525506 0,25.3399947 -20.54213,45.8821207 -45.882121,45.8821207 -25.339997,2e-6 -45.882123,-20.542124 -45.882123,-45.8821207 0,-25.3399973 20.542126,-45.8821203 45.882123,-45.8821203 10.074581,0 19.390771,3.247027 26.959161,8.75166"></path><path class="A_Success__affair" stroke-width="8.23575687" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000" d="M 136.35222,-18.562557 87.080107,21.098347 70.668697,0.70988734"></path></g></svg></div><div class="Alert__contentwrap"></div></div></div><div class="
           Dropdowns__global
           false
           Dropdowns__main

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="zh-CN" data-accept-language="zh-CN,zh;q=0.9,en;q=0.8" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<html lang="zh-CN" data-accept-language="zh-CN,zh;q=0.9,en;q=0.8" xmlns:th="http://www.w3.org/1999/xhtml">
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- weinre --boundHost 10.0.3.88 --httpPort 9999 #weinre --help  -->
     <!-- <script src="http://10.0.3.88:9999/target/target-script-min.js#anonymous"></script>  -->
@@ -14,6 +14,11 @@
     <title>登录 | 三匹马</title>
 
 <script src="./login_files/108.js.下载" id="AWSC_uabModule"></script><script type="text/javascript" class="nc-required-js-1 nc-umid-script" src="./login_files/um.js.下载"></script><script type="text/javascript" class="nc-required-js-1 nc-uab-script" src="./login_files/awsc.js.下载"></script><script src="./login_files/initialize.jsonp"></script><script type="text/javascript">
+
+        function myFunction()
+        {
+            alert("账号或密码错误！");
+        }
   window.ga = function () {
     (ga.q = ga.q || []).push(arguments);
   };
@@ -246,13 +251,23 @@
         undefined
         false
         false
-        animate__startAnimate" id="t_2" required="" rows="10"></textarea></div></div></div><div class="Modal__actions"><button class="none_select undefined Ripple__main undefined"><!-- react-text: 22 -->提交<!-- /react-text --></button></div></div></div><div class="none_select AppTopBar__menu Ripple__main Ripple__overflow" title="菜单"><i class="AppTopBar__icon_menu null font_icon_13"></i></div><div class="AppTopBar__logo" data-text=""><a title="" class="none_select false Ripple__main Ripple__overflow" href="index.html"><img th:src="@{/img/spm2.jpg}" alt="SPM"></a></div><div class="AppTopBar__login AppTopBar__tips"><a href="login.html" class="AppTopBar__active">登录</a><span role="separator" class="AppTopBar__separator"></span><a href="regis.html">注册</a></div></div><div class="
+        animate__startAnimate" id="t_2" required="" rows="10"></textarea></div></div></div><div class="Modal__actions"><button class="none_select undefined Ripple__main undefined"><!-- react-text: 22 -->提交<!-- /react-text --></button></div></div></div><div class="none_select AppTopBar__menu Ripple__main Ripple__overflow" title="菜单"><i class="AppTopBar__icon_menu null font_icon_13"></i></div><div class="AppTopBar__logo" data-text=""><a title="" class="none_select false Ripple__main Ripple__overflow" th:href="@{/index}"><img th:src="@{/img/spm2.jpg}" alt="SPM"></a></div><div class="AppTopBar__login AppTopBar__tips"><a th:href="@{/login}" class="AppTopBar__active">登录</a><span role="separator" class="AppTopBar__separator"></span><a th:href="@{/register}">注册</a></div></div><div class="
           Hint__hidden
           Hint__main
           Hint__opacity
           false
         "><div role="tooltip" class="null Hint__hint
-          ">Null</div></div><main class="login__main"><div class="login__space"></div><form class="login__form"><div class="login__tipswrap"><!-- react-empty: 56 --></div><div class="
+          ">Null</div></div><main class="login__main"><div class="login__space"></div>
+
+
+
+
+
+      <form class="login__form" th:action="@{/login}" method="post" th:object="${users}">
+        <div class="login__tipswrap"><!-- react-empty: 56 --></div>
+        <div th:text="${result}" style="color: red"></div>
+        <div><br/></div>
+        <div class="
         undefined
         Input__tdmiddle
         false
@@ -262,7 +277,7 @@
           Input__inputwrap
           undefined
           Input__fullwidth
-          undefined"><svg class="font_icon_16 Input__icon undefined"><use xlink:href="#svg_sprite_user"></use></svg><input type="text" class="
+          undefined"><svg class="font_icon_16 Input__icon undefined"><use xlink:href="#svg_sprite_user"></use></svg><input type="text"  class="
         custom_scrollbar
         undefined
         Input__input
@@ -270,7 +285,8 @@
         undefined
         false
         false
-        animate__startAnimate" placeholder="用户名" id="t_username" name="username" required="" autocomplete="username" autocapitalize="none" value=""></div></div><div class="
+        animate__startAnimate" placeholder="用户名" id="t_username" name="userName" required="" autocomplete="username" autocapitalize="none" value="">
+      </div></div><div class="
         undefined
         Input__tdmiddle
         false
@@ -280,7 +296,7 @@
           Input__inputwrap
           undefined
           Input__fullwidth
-          undefined"><svg class="font_icon_16 Input__icon undefined"><use xlink:href="#svg_sprite_password"></use></svg><input type="password" class="
+          undefined" ><svg class="font_icon_16 Input__icon undefined"><use xlink:href="#svg_sprite_password"></use></svg><input type="password" class="
         custom_scrollbar
         undefined
         Input__input
@@ -288,8 +304,12 @@
         undefined
         invalid
         false
-        animate__startAnimate" placeholder="密码" id="t_password" name="password" required="" autocomplete="off" value="">
-      请输入密码</div></div><div id="sc-1" class="
+        animate__startAnimate" placeholder="密码" id="t_password" name="userPassword" required="" autocomplete="off" value="" >
+
+
+
+        </div></div>
+        <div id="sc-1" class="
           nc-container
           login__input
           SmartCaptcha__wrap
@@ -300,7 +320,17 @@
 <div id="nc_1_wrapper" class="nc_wrapper">
 <div id="nc_1__voice" class="nc_voice"></div>
 </div>
-</div><div class="login__input"> <a class="clickable login__inlinelink" href="">忘记密码</a></div><button class="alone reverse login__button null" type="submit">登录</button><div></div><p class="login__relatedlink"><!-- react-text: 89 -->没有账号？<!-- /react-text --><!-- react-text: 90 --> <!-- /react-text --><a class="clickable" href="regis.html">注册</a></p></form><div class="login__links"></div></main><div tabindex="0" data-noautoblur="true" class="Modal__backdrop backdrop Modal__noafter undefined"></div><div class="undefined animate__mobileStartAnimate animate__fade Alert__backdrop backdrop"><div role="alertdialog" class="Alert__alert"><div class="Alert__icon Alert__success"><svg class="A_Success__svg undefined" viewBox="0 0 100 100"><g transform="translate(-48.913488,44.432998)"><path class="A_Success__circle" stroke-width="8.23575687" stroke-linecap="round" fill="none" stroke="#000" d="m 142.57137,-8.5855493 c 1.44397,4.457575 2.22424,9.21394314 2.22424,14.1525506 0,25.3399947 -20.54213,45.8821207 -45.882121,45.8821207 -25.339997,2e-6 -45.882123,-20.542124 -45.882123,-45.8821207 0,-25.3399973 20.542126,-45.8821203 45.882123,-45.8821203 10.074581,0 19.390771,3.247027 26.959161,8.75166"></path><path class="A_Success__affair" stroke-width="8.23575687" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000" d="M 136.35222,-18.562557 87.080107,21.098347 70.668697,0.70988734"></path></g></svg></div><div class="Alert__contentwrap"></div></div></div><div class="
+</div><div class="login__input"> <a class="clickable login__inlinelink" href=""></a></div>
+      <button class="alone reverse login__button null" type="submit">登录</button>
+      <div></div><p class="login__relatedlink"><!-- react-text: 89 -->没有账号？<!-- /react-text --><!-- react-text: 90 --> <!-- /react-text --><a class="clickable" th:href="@{/register}">注册</a></p></form>
+
+
+
+
+
+
+
+      <div class="login__links"></div></main><div tabindex="0" data-noautoblur="true" class="Modal__backdrop backdrop Modal__noafter undefined"></div><div class="undefined animate__mobileStartAnimate animate__fade Alert__backdrop backdrop"><div role="alertdialog" class="Alert__alert"><div class="Alert__icon Alert__success"><svg class="A_Success__svg undefined" viewBox="0 0 100 100"><g transform="translate(-48.913488,44.432998)"><path class="A_Success__circle" stroke-width="8.23575687" stroke-linecap="round" fill="none" stroke="#000" d="m 142.57137,-8.5855493 c 1.44397,4.457575 2.22424,9.21394314 2.22424,14.1525506 0,25.3399947 -20.54213,45.8821207 -45.882121,45.8821207 -25.339997,2e-6 -45.882123,-20.542124 -45.882123,-45.8821207 0,-25.3399973 20.542126,-45.8821203 45.882123,-45.8821203 10.074581,0 19.390771,3.247027 26.959161,8.75166"></path><path class="A_Success__affair" stroke-width="8.23575687" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000" d="M 136.35222,-18.562557 87.080107,21.098347 70.668697,0.70988734"></path></g></svg></div><div class="Alert__contentwrap"></div></div></div><div class="
           Dropdowns__global
           false
           Dropdowns__main
@@ -378,7 +408,6 @@
   });
 </script>
 <!-- <script async defer src="//static.b0.upaiyun.com/upprobe/probe.js"></script> -->
-
 <style type="text/css" class="nc-style">.nc-container #nc_1_wrapper,.nc-container.tb-login #nc_1_wrapper{width:362px}
 .nc-container .imgCaptcha,.nc-container .clickCaptcha{width:360px;}
 .nc-container.tb-login .imgCaptcha,.nc-container.tb-login .clickCaptcha{width:362px;}

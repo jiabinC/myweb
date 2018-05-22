@@ -55,7 +55,7 @@
 <div class="none_select header__wrap ">
   <div class="header__main">
     <div class="header__logo" data-offline="离线">
-		<a href="index.html">
+		<a th:href="@{/index}">
         <img th:src="@{/img/spm2.jpg}" alt="SPM">
       </a>
     </div>
@@ -85,11 +85,17 @@
               </div>
           </div>
       </div>
-    <div class="header__login header__tips ">
-      <a href="login.html">登录</a>
+    <div th:if="${users}== null" class="header__login header__tips ">
+      <a th:href="@{/login}">登录</a>
       <span class="header__separator"></span>
-      <a href="regis.html" onclick="_hmt.push([&#39;_trackEvent&#39;, &#39;Button&#39;, &#39;click&#39;, &#39;browseNavReg&#39;])">注册</a>
+      <a th:href="@{/register}" onclick="_hmt.push([&#39;_trackEvent&#39;, &#39;Button&#39;, &#39;click&#39;, &#39;browseNavReg&#39;])">注册</a>
     </div>
+      <div th:if="${users}!=null" class="header__login header__tips ">
+          <a th:text="'欢迎您'+' '+'  '+${users.userName}"></a>
+          <span class="header__separator"></span>
+          <a th:href="@{/loginOut}">注销</a>
+      </div>
+
   </div>
 </div>
 
@@ -108,7 +114,7 @@
         </div>
         <div class="showheader__menus">
             <!-- 首页，分类页，搜索页 -->
-            <a class="showheader__menuslink showheader__active" href="index.html">首页<div class="showheader__tabflag"></div>
+            <a class="showheader__menuslink showheader__active" th:href="@{/index}">首页<div class="showheader__tabflag"></div>
             </a>
             </a>
             <a class="showheader__menuslink " href="">联系档案<div class="showheader__tabflag"></div>
@@ -164,7 +170,35 @@
 
 
             </div>
+            <div class="showindex__parent" >
+            <div class="album3__title">
+                <!--<br />-->
+                <p th:text="${type}" style="color: grey;font-size: 25px;background-color: palegoldenrod"  ></p>
+                <br />
+            </div>
+            <div th:each="cloth:${allCloths}" class="showindex__children" th:if="${cloth.clothType}==${type}">
+                <a class="album3__main" data-album-id="13597163" th:title="${cloth.clothName}" href="./inside.html">
+                    <div class="album__imgwrap">
+                        <img alt="" data-type="photo" class="album__absolute album__img autocover" th:src="@{{url}(url=${cloth.clothImage})}" data-origin-src="">
+                        <i class="album__space"></i>
+                        <!--<div class="text_overflow album__photonumber">11</div>-->
+                    </div>
+                    <div class="album3__photoswrap">
+                        <!--<img alt="" data-album-id="13597163" class="album3__img" style="" title="镂空长裙" data-src="" src="./spm_files/square.jpeg" data-origin-src="">-->
+                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="QQ图片20180503164620.jpg" data-src="" src="./spm_files/square(1).jpeg" data-origin-src="" style="">-->
+                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="IMG_7968.JPG" data-src="" src="./spm_files/square(2).jpeg" data-origin-src="">-->
+                        <!--<img alt="" data-album-id="13597163" class="album3__img" title="IMG_7967.JPG" data-src="" src="./spm_files/square(3).jpeg" data-origin-src="" style="padding: 0px; border: 2px solid;"></div>-->
+                        <!--<div class="album3__title">  -->
+                    </div>
+                    <div class="album3__title">
+                        <p th:text="${cloth.clothName}"></p>
+                        <p th:text="'￥'+${cloth.clothPrice}" style="color: #e60012"></p>
+                    </div>
+                </a>
+            </div>
 
+
+        </div>
     </main>
 <div class="showlayout__wrap">
 
