@@ -22,5 +22,7 @@ public interface ClothRepository extends JpaRepository<Cloth,String> {
     @Query(value = "select *  from Cloth c where c.cloth_Name like %:name% ",nativeQuery = true)
     List<Cloth> findByLikeName(@Param("name") String name);
 
+    @Query(value = "select distinct c.clothType from Cloth c" )
+    List<String> findAllTypes();
 
 }

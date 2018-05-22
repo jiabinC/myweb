@@ -50,4 +50,8 @@ public class ClothService {
         return clothRepository.findAllByClothType(type);
     }
 
+    public List findAllTypes() {
+        return clothRepository.findAllTypes();
+    }
+
 }
