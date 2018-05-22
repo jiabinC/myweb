@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0045)file:///C:/Users/msy_a/Desktop/web/index.html -->
-<html lang="zh-CN" xmlns:th="http://www.springframework.org/schema/data/jaxb"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
+<html lang="zh-CN" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
@@ -38,7 +38,7 @@
 
 <link th:href="@{/img}">
 
-    <link href="./spm_files/showindex.css" rel="stylesheet">
+    <link th:href="@{/css/showindex.css}" rel="stylesheet">
     <!--<script type="text/javascript" charset="utf-8" async="" src="./spm_files/show-layout-commerce.chunk.js.下载"></script></head>-->
 
 <body>
@@ -56,7 +56,7 @@
   <div class="header__main">
     <div class="header__logo" data-offline="离线">
 		<a href="index.html">
-        <img src="./spm_files/spm2.jpg" alt="SPM">
+        <img th:src="@{/img/spm2.jpg}" alt="SPM">
       </a>
     </div>
       <div class="header__tips displaynone">
@@ -139,7 +139,7 @@
                 <div class="showindex__children">
                     <a class="album3__main" data-album-id="13597163" title="镂空长裙" href="./inside.html">
                         <div class="album__imgwrap">
-                            <img alt="" data-type="photo" class="album__absolute album__img autocover" src="./spm_files/1.jpg" data-origin-src="">
+                            <img alt="" data-type="photo" class="album__absolute album__img autocover" th:src="@{/img/1.jpg}" data-origin-src="">
                             <i class="album__space"></i>
                             <!--<div class="text_overflow album__photonumber">11</div>-->
                         </div>

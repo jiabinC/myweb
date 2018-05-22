@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <!-- saved from url=(0045)file:///C:/Users/msy_a/Desktop/web/index.html -->
-<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="zh-CN" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
-  <title data-back=" | 又拍图片管家">镂空长裙</title>
-  <meta name="description" itemprop="description" content="价格：300
+  <title data-back=" | ">镂空长裙</title>
+  <meta name="description" itemprop="description" content="价格：
 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -40,7 +41,7 @@
 <base href=".">
 
 
-<link href="./inside_files/showalbum.css" rel="stylesheet">
+<link th:href="@{/css/showalbum.css}" rel="stylesheet">
 </head>
         
 <body>
@@ -60,7 +61,7 @@
   <div class="header__main">
     <div class="header__logo" data-offline="离线">
       <a href="index.html">
-        <img src="./spm_files/spm2.jpg" alt="SPM">
+        <img th:src="@{/img/spm2.jpg}" alt="SPM">
       </a>
     </div>
       <div class="header__tips displaynone">
