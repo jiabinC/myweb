@@ -29,7 +29,7 @@ public class UserService {
         if (users == null)
             return "用户不存在";
         else {
-            if (users.getUserPassword().equals(user.getUserPassword()))
+            if (users.getUserPassword().equals(String.valueOf(user.getUserPassword().hashCode())))
             return "登陆成功";
 
           else
@@ -44,6 +44,7 @@ public class UserService {
         if (users!=null)
             return "该用户名已被注册";
         else {
+            user.setUserPassword(String.valueOf(user.getUserPassword().hashCode()));
             userRepository.save(user);
             return "注册成功";
         }

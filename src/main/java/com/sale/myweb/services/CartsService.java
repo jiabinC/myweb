@@ -21,15 +21,13 @@ public class CartsService {
     public String addClothsToCarts(Carts carts) {
         if(cartsRepository.findByUserIdAndClothId(carts.getUserId(),carts.getClothId())==null) {
             cartsRepository.save(carts);
-            return "成功";
+            return "success";
 
         }
         else {
             cartsRepository.addClothNum(carts.getUserId(),carts.getClothId(),carts.getClothNum());
-            return "成功";
+            return "success";
         }
-
-
     }
 
     public List<Carts> getMyCarts(Users users) {
