@@ -59,39 +59,14 @@
         <img th:src="@{/img/spm2.jpg}" alt="SPM">
       </a>
     </div>
-      <div class="header__tips displaynone">
-          <a class="header__notification" href="">
-            <span class="header__countwrap"><i class="icon_notification font_icon_20"></i></span>
-          </a>
-          <div class="header__username">
-              <a href=""></a>
-              <i class="icon_dropdown_menu header__dropdownicon"></i>
-              <div class="header__dropdown">
-                  <ul>
-                      <a href="">
-                          <li>个人主页</li>
-                      </a>
-                      <a href="">
-                          <li>我的相册</li>
-                      </a>
-                      <a href="">
-                          <li>帐号设置</li>
-                      </a>
-                      <a href="">
-                          <li>帐号安全</li>
-                      </a>
-                      <li data-action="signout">退出</li>
-                  </ul>
-              </div>
-          </div>
-      </div>
+
     <div th:if="${users}== null" class="header__login header__tips ">
       <a th:href="@{/login}">登录</a>
       <span class="header__separator"></span>
-      <a th:href="@{/register}" onclick="_hmt.push([&#39;_trackEvent&#39;, &#39;Button&#39;, &#39;click&#39;, &#39;browseNavReg&#39;])">注册</a>
+      <a th:href="@{/register}" >注册</a>
     </div>
       <div th:if="${users}!=null" class="header__login header__tips ">
-          <a th:text="'欢迎您'+' '+'  '+${users.userName}"></a>
+          <a th:text="'欢迎您'+' '+'  '+${users.userName}" ></a>
           <span class="header__separator"></span>
           <a th:href="@{/loginOut}">注销</a>
       </div>
@@ -119,11 +94,6 @@
 
             <a class="showheader__menuslink " href="">联系档案<div class="showheader__tabflag"></div>
             </a>
-
-            <a class="showheader__menuslink " href="">个人资料<div class="showheader__tabflag"></div>
-            </a>
-            <a class="showheader__menuslink " href="">我的购物车<div class="showheader__tabflag"></div>
-            </a>
             <input id="showheader__showallcate" type="checkbox">
             <div class="showheader__cateWrap">
                 <label for="showheader__showallcate" class="showheader__menuslink">全部分类<i class="icon_dropdown_menu font_icon_8 "></i><div class="showheader__tabflag"></div></label>
@@ -134,13 +104,7 @@
                 <!--</ul>-->
             </div>
 
-            <div class="showheader__qrcodewrap">
-                <div class="showheader__qrcodehandle">
-                    <span class="showheader__qrcodetext">扫一扫 手机看</span>
-                    <img class="showheader__icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAApCAYAAACoYAD2AAACeElEQVRYCc3B0XHaWABA0YtG/6gESlAqkNwBqSB0sKQCrisI24HdASXIHbwStB2ICrRvR8xgIBbCep7sOYu+71G3QME8QT1woq6BknmCesjVLfCL+Y5AwdkLsGQm9XsGFKSxVEsitQaWpFFmpFXwBXKuqAsmMgJ23PdsxERqzzsZCakNg5aEMr6A2pJQzh3qFlgDLbBXAzOpJbAFVkBjxIiMEeoW+AVUwA+gUQvma4AfQAXs1A0jMsatubQESmZQa2DJpTUjMsa13GqZp+VWy4iMcXvgyNmr2jKD2gKvnB2BPSMyRqgBWAFPwDd1QwLqBvgGPAErtWVEzh1qBzQkpgYmykhILYnUkoRyrhgxXc2lgkHBpdqIT8q5tSO9Cqj4pIy0AoNAQhkQgCPzvakdkdoBb8z3D7Bf9H3Pf9QVsAKC2jGBWjNo1ZYragkURGrDBOoKWBGpDdGi73v+73JO1JpBpwbuUAugZNCpgS+y2O12JdAAS+Z5U2tO1AaomObZiBO1Z3AENhmwBpbMV6kFkVoCFfMtgTIjrZJBwSepJVdybj0zXQ1UpNVyJeeKERMZARVnHYOOT1I7lfcyElIDkRpIKGMCtVZX/CE5I9QSaIAlkfq3uiW9nbrjAxnjBJac/aWueNwr8AQ8AT95UM64glsroOUxrdoQqTwqZ1wDVJwdgcA8HfDGdG3OCAcdsAZaYK92zKAGoOYBOXeoe2DPH5SRkFoQqQUJ5aRVAg1Q8gG1AA68o9acGAE1Zy85V9Ser1UCFR+rgYqzJiOtjkFHQhkQSOOoBiI1AEd+r+MxIVcP6negZJ7ApQ1QMmg464BnPvYCNAyCevgXDYoC4M+8UEUAAAAASUVORK5CYII=" alt="qrcode">
-                    <img class="showheader__qrcode" src="data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iY2lyY3VsYXIiIHZpZXdCb3g9IjI1IDI1IDUwIDUwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KICAgIDwhW0NEQVRBWwogICAgICAgIC5jaXJjdWxhciB7CiAgICAgICAgICBhbmltYXRpb246IHJvdGF0ZSAycyBsaW5lYXIgaW5maW5pdGU7CiAgICAgICAgICBoZWlnaHQ6IDEwMCU7CiAgICAgICAgICB0cmFuc2Zvcm0tb3JpZ2luOiBjZW50ZXIgY2VudGVyOwogICAgICAgICAgd2lkdGg6IDEwMCU7CiAgICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7CiAgICAgICAgICB0b3A6IDA7CiAgICAgICAgICBib3R0b206IDA7CiAgICAgICAgICBsZWZ0OiAwOwogICAgICAgICAgcmlnaHQ6IDA7CiAgICAgICAgICBtYXJnaW46IGF1dG87CiAgICAgICAgfQoKICAgICAgICAucGF0aCB7CiAgICAgICAgICBzdHJva2U6ICM1OGMwZWE7CiAgICAgICAgICBzdHJva2Utd2lkdGg6IDRweDsKICAgICAgICAgIHN0cm9rZS1kYXNoYXJyYXk6IDEsIDIwMDsKICAgICAgICAgIHN0cm9rZS1kYXNob2Zmc2V0OiAwOwogICAgICAgICAgYW5pbWF0aW9uOiBkYXNoIDEuNXMgZWFzZS1pbi1vdXQgaW5maW5pdGU7CiAgICAgICAgfQoKICAgICAgICBAa2V5ZnJhbWVzCiAgICAgICAgcm90YXRlIHsgIDEwMCUgewogICAgICAgICB0cmFuc2Zvcm06IHJvdGF0ZSgzNjBkZWcpOwogICAgICAgIH0KICAgICAgICB9CgogICAgICAgIEBrZXlmcmFtZXMKICAgICAgICBkYXNoIHsgIDAlIHsKICAgICAgICAgc3Ryb2tlLWRhc2hhcnJheTogMSwgMjAwOwogICAgICAgICBzdHJva2UtZGFzaG9mZnNldDogMDsKICAgICAgICB9CiAgICAgICAgIDUwJSB7CiAgICAgICAgIHN0cm9rZS1kYXNoYXJyYXk6IDg5LCAyMDA7CiAgICAgICAgIHN0cm9rZS1kYXNob2Zmc2V0OiAtMzU7CiAgICAgICAgfQogICAgICAgICAxMDAlIHsKICAgICAgICAgc3Ryb2tlLWRhc2hhcnJheTogODksIDIwMDsKICAgICAgICAgc3Ryb2tlLWRhc2hvZmZzZXQ6IC0xMjQ7CiAgICAgICAgfQogICAgICAgIH0KICAgICAgXV0+CiAgICA8L3N0eWxlPgogICAgPGNpcmNsZSBjbGFzcz0icGF0aCIgY3g9IjUwIiBjeT0iNTAiIHI9IjIwIiBmaWxsPSJub25lIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiLz4KPC9zdmc+" alt="">
-                </div>
-            </div>
+
         </div>
     </div>
 </div>

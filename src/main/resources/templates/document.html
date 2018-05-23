@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+  <title data-back=" ">三匹马</title>
+
+  <meta name="theme-color" content="#49bc85" data-online="#49bc85" data-offline="#c95050">
+
+
+  <meta name="msapplication-TileColor" content="#49bc85">
+
+
+
+<!--[if lt IE 9]>
+ <script>
+    (function(){if(!/*@cc_on!@*/0)return;var e ="main, abbr,article,aside,audio,canvas,datalist,details,dialog,eventsource,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(','),i=e.length;while(i--){document.createElement(e[i])}})();
+    (function(){
+      // IE 8 只能使用在 DOM 上
+      Object._defineProperty = Object.defineProperty;
+      Object.defineProperty = function (obj, prop, opt) {
+        if (obj instanceof Element || obj === Element.prototype) return Object._defineProperty(obj, prop, opt);
+        obj[prop] = opt.value;
+      }
+    })();
+ </script>
+<![endif]-->
+<noscript>
+  <style>
+  * {
+    -ms-animation-play-state: running !important;
+    -o-animation-play-state: running !important;
+    -webkit-animation-play-state: running !important;
+    -moz-animation-play-state: running !important;
+    animation-play-state: running !important;
+  }
+  </style>
+</noscript>
+
+
+
+        <<link th:href="@{/css/usercontact.css}" rel="stylesheet">
+</head>
+        
+<body>
+        <div class="alert__main ">
+            <div class="alert__alert">
+                <div class="alert__icon alert__success"><i class="icon_success font_icon_15"></i></div>
+                <div class="alert__contentwrap">
+                    <div class="alert__title">三匹马</div>
+                    <div class="alert__content"></div>
+                </div>
+            </div>
+        </div>
+
+<div class="none_select header__wrap ">
+  <div class="header__main">
+    <div class="header__logo" data-offline="离线">
+        <a th:href="@{/index}">
+          <img th:src="@{/img/spm2.jpg}" alt="SPM">
+        </a>
+    </div>
+      <div th:if="${users}== null" class="header__login header__tips ">
+          <a th:href="@{/login}">登录</a>
+          <span class="header__separator"></span>
+          <a th:href="@{/register}" >注册</a>
+      </div>
+      <div th:if="${users}!=null" class="header__login header__tips ">
+          <a th:text="'欢迎您'+' '+'  '+${users.userName}" th:href=""></a>
+          <span class="header__separator"></span>
+          <a th:href="@{/loginOut}">注销</a>
+      </div>
+  </div>
+</div>
+
+<div class="showheader__headerWrap">
+    <div class="showheader__header">
+        <div class="showheader__headerTop">
+            <h1 class="text_overflow showheader__nickname">三匹马</h1>
+            <div class="showheader__search">
+                <form method="get" action="" class="search__main showheader__searchInput">
+                    <input name="uid" type="hidden" value="1">
+                    <div class="search__inputWrap search__td search__inputwrap">
+                        <span class="icon_search font_icon_16 search__icon"></span>
+                        <input name="q" type="search" class="search__input search__clearable animate__startAnimate" placeholder="search" autocomplete="off" value="">
+                    </div>
+                </form>            </div>
+        </div>
+        <div class="showheader__menus">
+            <!-- 首页，分类页，搜索页 -->
+            <a class="showheader__menuslink showheader__active" th:href="@{/index}">首页<div class="showheader__tabflag"></div>
+            </a>
+
+            <a class="showheader__menuslink " href="">联系档案<div class="showheader__tabflag"></div>
+            </a>
+        </div>
+    </div>
+</div>
+        <main class="usercontact__main htmlwrap__main">简介
+
+
+
+
+
+        </main>
+<div class="userfooter__main">
+  <div class="userfooter__content">
+
+
+  </div>
+</div>
+
+
+</body></html>

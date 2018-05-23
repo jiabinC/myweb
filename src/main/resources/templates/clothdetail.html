@@ -24,6 +24,30 @@
 
     <link rel="search" title="SPM" href="" type="application/opensearchdescription+xml">
 
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/jquery.fly.min.js"></script>
+
+    <script>
+        $('.showalbumheader__gallerycover').on('click', addCart);
+        var num = 0;
+        function addCart(event) {
+            var offset = $('#end').offset(), flyer = $('![](img/1.jpg)');
+            flyer.fly({
+                start: {
+                    left: event.pageX,
+                    top: event.pageY
+                },
+                end: {
+                    left: offset.left + 280,
+                    top: offset.top,
+                    width: 0,
+                    height: 0
+                }
+            });
+            num++;
+            $('.cartBox span').text(num);
+        }
+    </script>
 
 <!--[if lt IE 9]>
  <script>
@@ -60,41 +84,20 @@
 <div class="none_select header__wrap ">
   <div class="header__main">
     <div class="header__logo" data-offline="离线">
-      <a href="index.html">
+      <a th:href="@{/index}">
         <img th:src="@{/img/spm2.jpg}" alt="SPM">
       </a>
     </div>
-      <div class="header__tips displaynone">
-          <a class="header__notification" href="">
-            <span class="header__countwrap"><i class="icon_notification font_icon_20"></i></span>
-          </a>
-          <div class="header__username">
-              <a href=""></a>
-              <i class="icon_dropdown_menu header__dropdownicon"></i>
-              <div class="header__dropdown">
-                  <ul>
-                      <a href="">
-                          <li>个人主页</li>
-                      </a>
-                      <a href="">
-                          <li>我的相册</li>
-                      </a>
-                      <a href="">
-                          <li>帐号设置</li>
-                      </a>
-                      <a href="">
-                          <li>帐号安全</li>
-                      </a>
-                      <li data-action="signout">退出</li>
-                  </ul>
-              </div>
-          </div>
+      <div th:if="${users}== null" class="header__login header__tips ">
+          <a th:href="@{/login}">登录</a>
+          <span class="header__separator"></span>
+          <a th:href="@{/register}" >注册</a>
       </div>
-    <div class="header__login header__tips ">
-      <a href="login.html">登录</a>
-      <span class="header__separator"></span>
-      <a href="register.html" onclick="_hmt.push([&#39;_trackEvent&#39;, &#39;Button&#39;, &#39;click&#39;, &#39;browseNavReg&#39;])">注册</a>
-    </div>
+      <div th:if="${users}!=null" class="header__login header__tips ">
+          <a th:text="'欢迎您'+' '+'  '+${users.userName}" th:href=""></a>
+          <span class="header__separator"></span>
+          <a th:href="@{/loginOut}">注销</a>
+      </div>
   </div>
 </div>
 
@@ -134,20 +137,30 @@
 
             <div class="showalbumheader__main">
                 <div class="showalbumheader__gallerycover">
-                    <img alt="" class="autocover" data-type="photo" th:src="@{{url}(url=${clothDetail.clothImage})}">
-                    <div class="showalbumheader__space"></div>
+                    <img alt=""  data-type="photo" th:src="@{{url}(url=${clothDetail.clothImage})}" width="350">
                 </div>
+
                 <div class="showalbumheader__gallerydec">
-                    <h2><span class="showalbumheader__gallerytitle" th:text="${clothDetail.clothName}"></span><span><i class="showalbumheader__separator"></i></span></h2>
-                    <div class="showalbumheader__gallerysubtitle htmlwrap__main">
+                    <h2><span class="showalbumheader__gallerytitle" th:text="${clothDetail.clothName}" style="margin: 1em 1em 1em 1em"></span><span></span></h2>
+                    <div class="showalbumheader__gallerysubtitle htmlwrap__main" style="margin-left: 3.5em">
                         简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介
                         简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介
 
 					</div>
                     <br />
-                    <div  th:text="'价格'+' '+'￥'+' '+${clothDetail.clothPrice}" style="color: red;"></div>
+                    <div  th:text="'价格'+' '+'￥'+' '+${clothDetail.clothPrice}" style="color: red;margin-left: 3em" ></div>
                     <br />
-                    <div  th:text="'折扣'+' '+${clothDetail.clothDiscount}+' '+'%'" style="color: #186bca"></div>
+                    <div  th:text="'折扣'+' '+${clothDetail.clothDiscount}+' '+'%'" style="color: #186bca;margin-left: 3em" ></div>
+                    <br />
+                    <br />
+                    <br />
+                </div>
+                <div class="cartBox" style="margin-left: 15em">
+                    <div class="cart">
+                        <i id="end"></i>
+                        <img alt=""  th:src="@{/img/cart.png}" width="50" style="margin-left: 15em">
+                        <span style="color: red">0</span>
+                    </div>
                 </div>
             </div>
     
