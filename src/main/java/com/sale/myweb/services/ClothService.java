@@ -54,4 +54,8 @@ public class ClothService {
         return clothRepository.findAllTypes();
     }
 
+    public Cloth findByclothId(String clothId) {
+        return clothRepository.findByClothId(clothId);
+    }
+
 }

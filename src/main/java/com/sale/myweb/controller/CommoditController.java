@@ -1,11 +1,13 @@
 package com.sale.myweb.controller;
 
+import com.sale.myweb.entity.Cloth;
 import com.sale.myweb.services.ClothService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -44,6 +46,14 @@ public class CommoditController {
     public List getCloth() {
         return clothService.findByDiscount("30","60");
 
+    }
+
+    @GetMapping("/clothDetail")
+    public String clothDetail(@RequestParam("clothId") String clothId,ModelMap model) {
+
+        model.addAttribute("clothDetail",clothService.findByclothId(clothId));
+
+        return "clothDetail";
     }
 
 }
