@@ -49,4 +49,8 @@ public class UserService {
             return "注册成功";
         }
     }
+
+    public Users findByUserName(String userName) {
+        return userRepository.findByUserName(userName);
+    }
 }
