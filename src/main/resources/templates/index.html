@@ -66,7 +66,7 @@
       <a th:href="@{/register}" >注册</a>
     </div>
       <div th:if="${users}!=null" class="header__login header__tips ">
-          <a th:text="'欢迎您'+' '+'  '+${users.userName}" ></a>
+          <a th:text="'欢迎您'+' '+'  '+${users.userName}" th:href="@{/userCenter}"></a>
           <span class="header__separator"></span>
           <a th:href="@{/loginOut}">注销</a>
       </div>

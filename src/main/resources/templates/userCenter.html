@@ -79,9 +79,9 @@
         undefined
         false
         false
-        animate__startAnimate" id="t_2" required="" rows="10"></textarea></div></div></div><div class="Modal__actions"><button class="none_select undefined Ripple__main undefined"><!-- react-text: 22 -->提交<!-- /react-text --></button></div></div></div><div class="none_select AppTopBar__menu Ripple__main Ripple__overflow" title="菜单"><i class="AppTopBar__icon_menu null font_icon_13"></i></div><div class="AppTopBar__logo" data-text=""><a title="" class="none_select onlydesktop Ripple__main Ripple__overflow" href="">
+        animate__startAnimate" id="t_2" required="" rows="10"></textarea></div></div></div><div class="Modal__actions"><button class="none_select undefined Ripple__main undefined"><!-- react-text: 22 -->提交<!-- /react-text --></button></div></div></div><div class="none_select AppTopBar__menu Ripple__main Ripple__overflow" title="菜单"><i class="AppTopBar__icon_menu null font_icon_13"></i></div><div class="AppTopBar__logo" data-text=""><a title="" class="none_select onlydesktop Ripple__main Ripple__overflow" th:href="@{/index}">
         <img th:src="@{/img/spm2.jpg}" alt="SPM"></a><h1 class="hide_scrollbar onlymobile false">用户</h1></div><div class="AppTopBar__tips"><div class="AppTopBar__dropdowns dropdowns__dropdownwrap null"><div title="更多" class="none_select onlymobile undefined AppTopBar__actionitem Ripple__main Ripple__overflow">
-        <i class="undefined dropdowns__icon_mobile_dropdown_menu"></i></div><a class="onlydesktop AppTopBar__active" href=""><!-- react-text: 37 -->pelicanm<!-- /react-text --></a><div class="dropdowns__dropdown"></div></div></div></div><div class="
+        <i class="undefined dropdowns__icon_mobile_dropdown_menu"></i></div><a class="onlydesktop AppTopBar__active" th:href="@{/userCenter}" th:text="${users.userName}"><!-- react-text: 37 --><!-- /react-text --></a><div class="dropdowns__dropdown"></div></div></div></div><div class="
           Hint__hidden
           Hint__main
           Hint__opacity
@@ -141,7 +141,7 @@
         undefined
         false
         false
-        animate__startAnimate" pattern=".{0,40}" id="t_nickname" name="nickname" required="" readonly="" maxlength="40" value=""></div></div><span class="onlydesktop user__decoration"></span></div><div class="user__row"><div class="
+        animate__startAnimate" pattern=".{0,40}" id="t_nickname" name="nickname" required="" readonly="" maxlength="40" th:value="${users.userName}"></div></div><span class="onlydesktop user__decoration"></span></div><div class="user__row"><div class="
         undefined
         Input__tdmiddle
         false
@@ -166,7 +166,9 @@
         undefined
         false
         false
-        animate__startAnimate" id="t_4" readonly="" value=""></div></div></div><div class="user__row"><div class="
+        animate__startAnimate" id="t_4"  value="123456"></div></div></div>
+        <div class="user__row">
+            <div class="
         undefined
         Input__tdmiddle
         false
@@ -191,7 +193,7 @@
         undefined
         false
         false
-        animate__startAnimate" id="t_5" readonly="" value=""></div></div>
+        animate__startAnimate" id="t_5"  th:value="${users.userAddress}"></div></div>
 </div><div class="user__row"><div class="
         undefined
         Input__tdmiddle
@@ -217,7 +219,7 @@
         undefined
         false
         false
-        animate__startAnimate" id="t_6" readonly="" value=""></div></div></div>
+        animate__startAnimate" id="t_6"  th:value="${users.userSex}"></div></div></div>
 		<div class="user__row"><div class="
         undefined
         Input__tdmiddle
@@ -243,7 +245,7 @@
         undefined
         false
         false
-        animate__startAnimate" id="t_6" readonly="" value=""></div></div></div><div class="user__row"></div><!-- react-empty: 248 --><div class="
+        animate__startAnimate" id="t_6"  th:value="${users.userAge}"></div></div></div><div class="user__row"></div><!-- react-empty: 248 --><div class="
         undefined
         Input__tdmiddle
         false
