@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
-  <title data-back=" | ">镂空长裙</title>
-  <meta name="description" itemprop="description" content="价格：
+  <title data-back=" | " th:text="${clothDetail.clothName}"></title>
+  <!--<meta name="description" itemprop="description" content="价格：-->
 
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!--<meta name="apple-mobile-web-app-capable" content="yes">-->
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" itemprop="name" content="镂空长裙">
+  <meta name="apple-mobile-web-app-title" itemprop="name" content="">
   <meta name="msapplication-TileColor" content="#49bc85">
 
   
@@ -51,7 +51,7 @@
     <div class="alert__alert">
         <div class="alert__icon alert__success"><i class="icon_success font_icon_15"></i></div>
         <div class="alert__contentwrap">
-            <div class="alert__title">镂空长裙</div>
+            <div class="alert__title"></div>
             <div class="alert__content"></div>
         </div>
     </div>
@@ -113,7 +113,7 @@
         </div>
         <div class="showheader__menus">
             <!-- 首页，分类页，搜索页 -->
-            <a class="showheader__menuslink " href="./index.html">首页<div class="showheader__tabflag"></div>
+            <a class="showheader__menuslink " th:href="@{/index}">首页<div class="showheader__tabflag"></div>
             </a>
 
             <a class="showheader__menuslink " href="">联系档案<div class="showheader__tabflag"></div>
@@ -134,18 +134,20 @@
 
             <div class="showalbumheader__main">
                 <div class="showalbumheader__gallerycover">
-                    <img alt="" class="autocover" data-type="photo" src="./spm_files/1.jpg">
+                    <img alt="" class="autocover" data-type="photo" th:src="@{{url}(url=${clothDetail.clothImage})}">
                     <div class="showalbumheader__space"></div>
                 </div>
                 <div class="showalbumheader__gallerydec">
-                    <h2><span class="showalbumheader__gallerytitle">镂空长裙</span><span><i class="showalbumheader__separator"></i></span></h2>
-                    <div class="showalbumheader__gallerysubtitle htmlwrap__main">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介
+                    <h2><span class="showalbumheader__gallerytitle" th:text="${clothDetail.clothName}"></span><span><i class="showalbumheader__separator"></i></span></h2>
+                    <div class="showalbumheader__gallerysubtitle htmlwrap__main">
+                        简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介
                         简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介
-                        简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介
-                        简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介
-                        简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介
-					</div>
 
+					</div>
+                    <br />
+                    <div  th:text="'价格'+' '+'￥'+' '+${clothDetail.clothPrice}" style="color: red;"></div>
+                    <br />
+                    <div  th:text="'折扣'+' '+${clothDetail.clothDiscount}+' '+'%'" style="color: #186bca"></div>
                 </div>
             </div>
     

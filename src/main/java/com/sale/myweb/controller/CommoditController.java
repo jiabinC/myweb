@@ -48,12 +48,13 @@ public class CommoditController {
 
     }
 
-    @GetMapping("/clothDetail")
+    @GetMapping("/clothdetail")
     public String clothDetail(@RequestParam("clothId") String clothId,ModelMap model) {
 
         model.addAttribute("clothDetail",clothService.findByclothId(clothId));
 
-        return "clothDetail";
+        return "clothdetail";
     }
+
 
 }
