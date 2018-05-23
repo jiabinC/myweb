@@ -49,8 +49,9 @@ public class CommoditController {
     }
 
     @GetMapping("/clothdetail")
-    public String clothDetail(@RequestParam("clothId") String clothId,ModelMap model) {
+    public String clothDetail(@RequestParam("clothId") String clothId,ModelMap model,HttpSession session) {
 
+        model.addAttribute("users",session.getAttribute("user"));
         model.addAttribute("clothDetail",clothService.findByclothId(clothId));
 
         return "clothdetail";
