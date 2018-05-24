@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="zh-CN" data-accept-language="zh-CN,zh;q=0.9,en;q=0.8">
+<html lang="zh-CN" data-accept-language="zh-CN,zh;q=0.9,en;q=0.8" xmlns:th="http://www.w3.org/1999/xhtml">
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- weinre --boundHost 10.0.3.88 --httpPort 9999 #weinre --help  -->
     <!-- <script src="http://10.0.3.88:9999/target/target-script-min.js#anonymous"></script>  -->
@@ -38,12 +38,19 @@
   window.initInnerWidth = window.innerWidth;
   window.initInnerHeight = window.innerHeight;
   window.initRenderHref = window.location.href;
+  function check(){
+      if (document.regForm.userPassword.value != document.regForm.confirm.value) {
+          alert("两次输入密码不一样！");
+          return false;
+      }
+  }
 </script>
-<link class="dynamic" rel="stylesheet" data-href="/style.css" href="./userCenterP_files/style.css"></head>
+    <link class="dynamic" rel="stylesheet"  data-href="/style.css" th:href="@{/css/style.css}">
+</head>
 <body>
     <div style="display: none">
-      <img src="./userCenterP_files/logo1@558.png">
-      <
+      <img th:src="@{/img/spm2.jpg}" alt="SPM">
+
     </div>
     <div id="impress"><div data-reactroot="" id="root"><div id="app_wrap" class="false platform_false chrome 66.0.3359.181"><!-- react-empty: 3 --><!-- react-empty: 4 --><!-- react-empty: 5 --><div id="app_top_wrap" data-is-scroller="true" class=" none_select AppTopBar__main AppTopBar__showMenu null"><div tabindex="0" data-noautoblur="true" class="Modal__backdrop backdrop Modal__noafter undefined"><div role="dialog" class="
             animate__downFadeIn
@@ -77,7 +84,9 @@
         undefined
         false
         false
-        animate__startAnimate" id="t_2" required="" rows="10"></textarea></div></div></div><div class="Modal__actions"><button class="none_select undefined Ripple__main undefined"><!-- react-text: 22 -->提交<!-- /react-text --></button></div></div></div><div class="none_select AppTopBar__menu Ripple__main Ripple__overflow" title="菜单"><i class="AppTopBar__icon_menu null font_icon_13"></i></div><div class="AppTopBar__logo" data-text=""><a title="" class="none_select onlydesktop Ripple__main Ripple__overflow" href=""><img src="" alt=""></a><h1 class="hide_scrollbar onlymobile false">用户</h1></div><div class="AppTopBar__tips"><div class="AppTopBar__dropdowns dropdowns__dropdownwrap null"><a class="onlydesktop AppTopBar__active" href="a"><!-- react-text: 37 -->123<!-- /react-text --></a></div></div></div><div class="
+        animate__startAnimate" id="t_2" required="" rows="10"></textarea></div></div></div><div class="Modal__actions"><button class="none_select undefined Ripple__main undefined"><!-- react-text: 22 -->提交<!-- /react-text --></button></div></div></div><div class="none_select AppTopBar__menu Ripple__main Ripple__overflow" title="菜单"><i class="AppTopBar__icon_menu null font_icon_13"></i></div><div class="AppTopBar__logo" data-text=""><a title="" class="none_select onlydesktop Ripple__main Ripple__overflow" th:href="@{/index}">
+        <img th:src="@{/img/spm2.jpg}" alt="SPM"></a><h1 class="hide_scrollbar onlymobile false">用户</h1></div><div class="AppTopBar__tips"><div class="AppTopBar__dropdowns dropdowns__dropdownwrap null"><div title="更多" class="none_select onlymobile undefined AppTopBar__actionitem Ripple__main Ripple__overflow">
+        <i class="undefined dropdowns__icon_mobile_dropdown_menu"></i></div><a class="onlydesktop AppTopBar__active" th:href="@{/userCenter}" th:text="${users.userName}"><!-- react-text: 37 --><!-- /react-text --></a><div class="dropdowns__dropdown"></div></div></div></div><div class="
           Hint__hidden
           Hint__main
           Hint__opacity
@@ -90,7 +99,7 @@
                 <li title="联系档案"><i class="icon_gallery font_icon_16 AppMenus__icon"></i><span class="text_overflow">联系档案</span></li></a>
         <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/index}">
             <li title="购物车"><i class="icon_toolkit font_icon_16 AppMenus__icon"></i><span class="text_overflow">购物车</span></li></a>
-        <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/index}">
+        <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/userCenter}">
             <li title="个人信息"><i class="icon_category font_icon_18 AppMenus__icon"></i><span class="text_overflow">个人信息</span></li></a>
             </ul>
 </nav><div id="main" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><main class="user__main"><div class="
@@ -108,11 +117,11 @@
           none_select
           undefined
           Tabs__label
-           Ripple__main undefined"><!-- react-text: 164 -->账户设置<!-- /react-text --></div><div tabindex="0" role="tab" class="none_select
+           Ripple__main undefined"><a th:href="@{/userCenter}">账户信息</a></div><div tabindex="0" role="tab" class="none_select
           none_select
           undefined
           Tabs__label
-          undefined Tabs__activeTab Ripple__main undefined"><!-- react-text: 166 -->账户安全<!-- /react-text --></div></div>
+          undefined Tabs__activeTab Ripple__main undefined"><a th:href="@{/userCenterP}">账户安全</a></div></div>
       <div class="mobilemargin">
         <form class="user__localform"><fieldset><legend>密码修改</legend><div class="user__row"><div class="
         undefined
