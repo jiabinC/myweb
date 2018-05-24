@@ -22,7 +22,7 @@ public class Carts implements Serializable {
 
     }
 
-    public Carts(String userId,String clothId,String clothNum) {
+    public Carts(String userId,String clothId,Integer clothNum) {
         this.userId = userId;
         this.clothId = clothId;
         this.clothNum = clothNum;
@@ -35,7 +35,7 @@ public class Carts implements Serializable {
     private String clothId;
 
     @Column
-    private String clothNum;
+    private Integer clothNum;
 
     public String getUserId() {
         return userId;
@@ -45,7 +45,7 @@ public class Carts implements Serializable {
         return clothId;
     }
 
-    public String getClothNum() {
+    public Integer getClothNum() {
         return clothNum;
     }
 
@@ -57,7 +57,7 @@ public class Carts implements Serializable {
         this.clothId = clothId;
     }
 
-    public void setClothNum(String clothNum) {
+    public void setClothNum(Integer clothNum) {
         this.clothNum = clothNum;
     }
 

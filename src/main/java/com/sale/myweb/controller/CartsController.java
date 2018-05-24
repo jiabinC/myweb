@@ -31,7 +31,8 @@ public class CartsController {
     @PostMapping("addClothToCart")
     public String addClothToCart(@RequestParam String clothId, @RequestParam String clothNumber, HttpSession session, ModelMap model) {
         Users users = (Users) session.getAttribute("user");
-        cartsService.addClothsToCarts(new Carts(users.getUserId(),clothId,clothNumber));
+        Integer integer = Integer.parseInt(clothNumber);
+        cartsService.addClothsToCarts(new Carts(users.getUserId(),clothId,integer));
         List<Carts> carts = cartsService.getMyCarts(users);
         model.addAttribute("carts",carts);
         model.addAttribute("users",users);
