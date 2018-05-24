@@ -42,7 +42,7 @@
 
 
 
-        <<link th:href="@{/css/usercontact.css}" rel="stylesheet">
+        <link th:href="@{/css/usercontact.css}" rel="stylesheet">
 </head>
         
 <body>
@@ -69,7 +69,7 @@
           <a th:href="@{/register}" >注册</a>
       </div>
       <div th:if="${users}!=null" class="header__login header__tips ">
-          <a th:text="'欢迎您'+' '+'  '+${users.userName}" th:href=""></a>
+          <a th:text="'欢迎您'+' '+'  '+${users.userName}" th:href="@{/userCenter}"></a>
           <span class="header__separator"></span>
           <a th:href="@{/loginOut}">注销</a>
       </div>
@@ -94,12 +94,49 @@
             <a class="showheader__menuslink showheader__active" th:href="@{/index}">首页<div class="showheader__tabflag"></div>
             </a>
 
-            <a class="showheader__menuslink " href="">联系档案<div class="showheader__tabflag"></div>
+            <a class="showheader__menuslink " th:href="@{/contact}">联系档案<div class="showheader__tabflag"></div>
             </a>
         </div>
     </div>
 </div>
         <main class="usercontact__main htmlwrap__main">简介
+
+
+
+
+
+        </main>
+        <main class="usercontact__main htmlwrap__main">联系我们
+            <form class="contact_form">
+                <div class="input_email_title">
+                    <text style="margin: 0.5em 0em"> 邮件主题: </text>
+                    <input type="text" class="
+                        custom_scrollbar
+                        undefined
+                        Input__input
+                        undefined
+                        undefined
+                        false
+                        false
+                        animate__startAnimate"  placeholder="主题" id="mail_title" name="mailTitle"  autocomplete="off" value="" size="88" style="margin: 1em 0em"
+                    >
+                </div>
+                <div class="input_email_content">
+                    <text style="margin: 0.5em 0em"> 邮件内容: </text>
+                    <!--<textarea placeholder="内容" id="mail_content" name="mailContent"  autocomplete="off" value="" size="88" style="margin: 1em 0em"></textarea>-->
+                    <textarea type="text" class="
+                        custom_scrollbar
+                        undefined
+                        Input__input
+                        undefined
+                        undefined
+                        false
+                        false
+                        animate__startAnimate"  placeholder="内容" id="mail_content" name="mailContent"  autocomplete="off" value="" rows="10" cols="88"
+                    ></textarea>
+                </div>
+                <button class="alone reverse login__button null" type="submit" style="margin: 0em 20em">发送</button>
+            </form>
 
 
 
