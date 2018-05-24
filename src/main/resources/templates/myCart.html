@@ -28,16 +28,8 @@
 
     <meta name="theme-color" content="#49bc85" data-online="#49bc85">
     <title>用户中心 |三匹马</title>
-    <script th:inline="javascript">
-        function checkR(){
 
-            var modifyResult=[[${result}]];
-            if (modifyResult)
-            {
-                alert(modifyResult);
-            }
-        }
-    </script>
+
 <script type="text/javascript">
   window.ga = function () {
     (ga.q = ga.q || []).push(arguments);
@@ -121,7 +113,7 @@
         Tabs__main
         Tabs__flexgrow
         undefined
-      ">
+      " >
         <div data-is-scroller="true" class="
             hide_scrollbar
             custom_scrollbar
@@ -137,30 +129,32 @@
         </div>
         <br/>
         <br/>
-        <div th:each="carts:${carts}" style="border-width: 1px;border-color: red">
-            <p>111</p>
-            <div class="showalbumheader__main" th:each="clothDetail:${cloths}" th:if="${clothDetail.clothId}==${carts.clothId}">
-                <p>222</p>
-                <div class="showalbumheader__gallerycover" style="border: white;margin-right: 5em">
-                    <img alt=""  data-type="photo" th:src="@{{url}(url=${clothDetail.clothImage})}" width="100" >
+
+
+
+        <div th:each="carts:${carts}" style="border-color: red;border-width: 10px;padding: 1.5em;background-color: #f3f7f7">
+            <div class="showalbumheader__main" th:each="clothDetail:${cloths}" th:if="${clothDetail.clothId}==${carts.clothId}" >
+                <div class="showalbumheader__gallerycover" style="float: left" >
+                    <img alt=""  data-type="photo" th:src="@{{url}(url=${clothDetail.clothImage})}" width="120" >
                 </div>
-                <div class="showalbumheader__gallerydec">
-                    <h2><span class="showalbumheader__gallerytitle" th:text="${clothDetail.clothName}" style="margin: 1em"></span><span></span></h2>
+                <div class="showalbumheader__gallerydec"style="float: left;">
+                    <h2><span class="showalbumheader__gallerytitle" th:text="${clothDetail.clothName}" style=""></span><span></span></h2>
                     <div style="display: inline">
-                        <div  th:text="'价格'+' '+'￥'+' '+${clothDetail.clothPrice}" style="color: red;margin-left: 8em" ></div>
-                        <div  th:text="'折扣'+' '+${clothDetail.clothDiscount}+' '+'%'" style="color: #186bca;margin-left: 8em" ></div>
+                        <div  th:text="'价格'+' '+'￥'+' '+${clothDetail.clothPrice}" style="color: red;" ></div>
+                        <div  th:text="'折扣'+' '+${clothDetail.clothDiscount}+' '+'%'" style="color: #186bca;" ></div>
                     </div>
                     <form name="cart" th:action="@{/addClothToCart}" method="post">
-                        <div style="margin-left: 8em">
-                            <input type="button" value="-"  onclick="bb()">
-                            <input name="clothNum" type="text" value="0" id="buy" style="text-align: center">
-                            <input type="button" value="+" onclick="aa()">
+                        <div style="">
+                            <input th:name="${carts.clothId}" type="button" value="-"  onclick="bb()" style="width: 1em">
+                            <input th:name="${carts.clothId}" type="text" th:value="${carts.clothNum}" id="buy" style="text-align: center">
+                            <input th:name="${carts.clothId}" type="button" value="+" onclick="aa()"style="width: 1em">
                         </div>
                     </form>
 
                 </div>
             </div>
-
+            <br/>
+            <br/>
         </div>
 
 
