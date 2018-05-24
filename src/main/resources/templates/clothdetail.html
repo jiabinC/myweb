@@ -24,8 +24,8 @@
 
     <link rel="search" title="SPM" href="" type="application/opensearchdescription+xml">
 
-    <script src="js/jquery-3.0.0.min.js"></script>
-    <script src="js/jquery.fly.min.js"></script>
+    <script th:src="@{/js/jquery-3.0.0.js}"></script>
+    <script th:src="@{/js/jquery.fly.js}"></script>
 
     <script>
         $('.showalbumheader__gallerycover').on('click', addCart);
@@ -94,7 +94,7 @@
           <a th:href="@{/register}" >注册</a>
       </div>
       <div th:if="${users}!=null" class="header__login header__tips ">
-          <a th:text="'欢迎您'+' '+'  '+${users.userName}" th:href=""></a>
+          <a th:text="'欢迎您'+' '+'  '+${users.userName}" th:href="@{/uesrCenter}"></a>
           <span class="header__separator"></span>
           <a th:href="@{/loginOut}">注销</a>
       </div>
@@ -119,7 +119,7 @@
             <a class="showheader__menuslink " th:href="@{/index}">首页<div class="showheader__tabflag"></div>
             </a>
 
-            <a class="showheader__menuslink " href="">联系档案<div class="showheader__tabflag"></div>
+            <a class="showheader__menuslink " th:href="@{/contact}">联系档案<div class="showheader__tabflag"></div>
             </a>
             <input id="showheader__showallcate" type="checkbox">
             <div class="showheader__cateWrap">
@@ -137,12 +137,9 @@
 
             <div class="showalbumheader__main">
                 <div class="showalbumheader__gallerycover">
-<<<<<<< HEAD
-                    <img alt=""  data-type="photo" th:src="@{{url}(url=${clothDetail.clothImage})}" width="350">
-=======
-                    <img alt=""  data-type="photo" th:src="@{{url}(url=${clothDetail.clothImage})}" width="300" height="300">
+                    <img alt=""  data-type="photo" th:src="@{{url}(url=${clothDetail.clothImage})}" width="350" >
+                    <!--<img alt=""  data-type="photo" th:src="@{{url}(url=${clothDetail.clothImage})}" width="300" height="300">-->
                     <div class="showalbumheader__space"></div>
->>>>>>> 00a63644d5e01a3e694adc9f52a7388a6a890330
                 </div>
 
                 <div class="showalbumheader__gallerydec">
@@ -159,12 +156,12 @@
                     <br />
                     <br />
                     <br />
-                </div>
-                <div class="cartBox" style="margin-left: 15em">
-                    <div class="cart">
-                        <i id="end"></i>
-                        <img alt=""  th:src="@{/img/cart.png}" width="50" style="margin-left: 15em">
-                        <span style="color: red">0</span>
+                    <div class="cartBox" style="position: absolute;left: 25em;top: 30em;">
+                        <div class="cart">
+                            <!--<i id="end"></i>-->
+                            <img alt=""  th:src="@{/img/cart.png}">
+                            <span style="color: red">0</span>
+                        </div>
                     </div>
                 </div>
             </div>

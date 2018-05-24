@@ -90,11 +90,11 @@
           ">Null</div></div><div id="app_bottom_wrap"><div class="Refresher__main Refresher__transition" style="transform: translateY(0px);"><div class="false">↓</div></div><nav class="AppMenus__main" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><div class="AppMenus__shadow"></div><ul data-is-scroller="true" role="menu" class="custom_scrollbar AppMenus__content">
             <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/index}">
                 <li title="首页"><i class="icon_home font_icon_17 AppMenus__icon"></i><span class="text_overflow">首页</span></li></a>
-            <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/index}">
+            <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/contact}">
                 <li title="联系档案"><i class="icon_gallery font_icon_16 AppMenus__icon"></i><span class="text_overflow">联系档案</span></li></a>
         <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/index}">
             <li title="购物车"><i class="icon_toolkit font_icon_16 AppMenus__icon"></i><span class="text_overflow">购物车</span></li></a>
-        <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/index}">
+        <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/userCenter}">
             <li title="个人信息"><i class="icon_category font_icon_18 AppMenus__icon"></i><span class="text_overflow">个人信息</span></li></a>
             </ul>
 		
@@ -112,11 +112,11 @@
           none_select
           undefined
           Tabs__label
-          undefined Tabs__activeTab Ripple__main undefined"><!-- react-text: 164 -->账户设置<!-- /react-text --></div><div tabindex="0" role="tab" class="none_select
+          undefined Tabs__activeTab Ripple__main undefined"><a th:href="@{/userCenter}">账户信息</a></div><div tabindex="0" role="tab" class="none_select
           none_select
           undefined
           Tabs__label
-           Ripple__main undefined"><!-- react-text: 166 -->账户安全<!-- /react-text --></div></div><div class="mobilemargin"><form class="user__localform"><fieldset><legend>个人资料</legend><div class="user__row"><div class="
+           Ripple__main undefined" ><a th:href="@{/userCenterP}">账户安全</a></div></div><div class="mobilemargin"><form class="user__localform"><fieldset><legend>个人资料</legend><div class="user__row"><div class="
         undefined
         Input__tdmiddle
         false
@@ -166,7 +166,7 @@
         undefined
         false
         false
-        animate__startAnimate" id="t_4"  value="123456"></div></div></div>
+        animate__startAnimate" id="t_4"  th:value="${users.userTel}"></div></div></div>
         <div class="user__row">
             <div class="
         undefined
