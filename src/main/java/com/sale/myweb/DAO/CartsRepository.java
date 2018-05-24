@@ -10,8 +10,8 @@ import java.util.List;
 public interface CartsRepository extends JpaRepository<Carts,String>{
 
     @Modifying
-    @Query("update Carts c set c.clothNum = c.clothNum+?3 where c.userId=?1 and c.clothId=?2")
-    public void addClothNum(String cartId, String clothId, String num);
+    @Query(value = "update Carts c set c.clothNum = c.clothNum+?3 where c.userId=?1 and c.clothId=?2" ,nativeQuery = true)
+    void addClothNum(String cartId, String clothId, String num);
 
     Carts findByUserIdAndClothId(String cartId,String clothId);
 

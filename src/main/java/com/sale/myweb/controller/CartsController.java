@@ -4,11 +4,14 @@ package com.sale.myweb.controller;
 import com.sale.myweb.entity.Carts;
 import com.sale.myweb.entity.Users;
 import com.sale.myweb.services.CartsService;
+import com.sale.myweb.services.ClothService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -17,10 +20,12 @@ import java.util.List;
 public class CartsController {
 
     private final CartsService cartsService;
+    private final ClothService clothService;
 
     @Autowired
-    public CartsController(CartsService cartsService) {
+    public CartsController(CartsService cartsService,ClothService clothService) {
         this.cartsService = cartsService;
+        this.clothService = clothService;
     }
 
     @PostMapping("addClothToCart")
@@ -30,6 +35,18 @@ public class CartsController {
         List<Carts> carts = cartsService.getMyCarts(users);
         model.addAttribute("carts",carts);
         model.addAttribute("users",users);
+        model.addAttribute("cloths",clothService.getAllCloth());
         return "myCart";
+    }
+
+
+    @GetMapping("/myCart")
+    public String myCart(HttpSession session,ModelMap model) {
+        Users users = (Users) session.getAttribute("user");
+        List<Carts> carts = cartsService.getMyCarts(users);
+        model.addAttribute("carts",carts);
+        model.addAttribute("users",session.getAttribute("user"));
+        model.addAttribute("cloths",clothService.getAllCloth());
+        return "myCart" ;
     }
 }

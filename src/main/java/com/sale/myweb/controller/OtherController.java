@@ -16,11 +16,11 @@ import javax.servlet.http.HttpSession;
 public class OtherController {
 
     @Autowired
-<<<<<<< HEAD
+
 
 
     JavaMailSender javaMailSender;
->>>>>>> 9b487e8b0d5720ad21dfebcecc9afc4c6ab2bd41
+
     @PostMapping("/sendEmail")
     public String sendEmail(@RequestParam("mailTitle") String mailTitle, @RequestParam("mailContent") String mailContent, ModelMap model) {
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
@@ -28,11 +28,11 @@ public class OtherController {
         simpleMailMessage.setTo("abin_c@sina.com");
         simpleMailMessage.setSubject(mailTitle);
         simpleMailMessage.setText(mailContent);
-<<<<<<< HEAD
+
         javaMailSender.send(simpleMailMessage);
-=======
+
         javaMailSender.send(simpleMailMessage);
->>>>>>> 9b487e8b0d5720ad21dfebcecc9afc4c6ab2bd41
+
         model.addAttribute("result","邮件已发送");
         return "contact";
 

@@ -14,8 +14,8 @@
   <meta name="apple-mobile-web-app-title" itemprop="name" content="">
   <meta name="msapplication-TileColor" content="#49bc85">
 
-  
-  
+
+
 
 
 
@@ -101,7 +101,8 @@
                         <span class="icon_search font_icon_16 search__icon"></span>
                         <input name="q" type="search" class="search__input search__clearable animate__startAnimate" placeholder="search" autocomplete="off" value="">
                     </div>
-                </form>            </div>
+                </form>
+            </div>
         </div>
         <div class="showheader__menus">
             <!-- 首页，分类页，搜索页 -->
@@ -150,51 +151,25 @@
                     <br />
                     <br />
                     <br />
-                    <form name="cart" th:action="@{}">
+                    <form name="cart" th:action="@{/addClothToCart}" method="post">
                     <div style="margin-left: 8em">
                         <input type="button" value="-"  onclick="bb()">
-                        <input name="num" type="text" value="0" id="buy" style="text-align: center">
+                        <input name="clothNumber" type="text" value="0" id="buy" style="text-align: center">
                         <input type="button" value="+" onclick="aa()">
                     </div>
                         <!--<button class="alone reverse login__button null" type="submit">注册</button>-->
                     <div style="margin: 3.8em;display: inline;">
                         <button class="alone reverse login__button null" type="submit" style="width: 11.5em">加入购物车</button>
                     </div>
+
                         <img th:src="@{/img/cart.png}" style="margin-left: 20em">
+                        <input type="text" name="clothId" th:value="${clothDetail.clothId}" hidden>
                     </form>
 
                 </div>
             </div>
     
-<div class="viewer__main displaynone" data-noautoblur="" tabindex="0">
 
-  <div class="viewer__left">
-    <div class="viewer__imagewrap">
-        <div class="viewer__nav">
-          <span class="viewer__prev">
-            <i class="icon_prev font_icon_15"></i>
-          </span>
-          <span class="viewer__next">
-            <i class="icon_next font_icon_15"></i>
-          </span>
-        </div>
-      <div class="viewer__imgwrap">
-       
-          <div class="video__main displaynone">
-            <video class="video-js" data-path="" data-src="" data-videoformats="" controls="">
-            </video>
-          </div>
-
-      </div>
-    </div>
-    <div class="viewer__thumbnailswrap">
-      <div class="viewer__btns">
-        <a id="viewer__origin_img" target="_blank" class="button small" href="">查看原图</a>
-        <a class="viewer__toggle_thumb button small" data-open-text="收起缩略图" data-close-text="展开缩略图"></a>
-      </div>
-      </div>
-    </div>
-  </div>
 
 <nav>
 

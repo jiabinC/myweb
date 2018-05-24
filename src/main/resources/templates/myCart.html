@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-accept-language="zh-CN,zh;q=0.9,en;q=0.8" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- weinre --boundHost 10.0.3.88 --httpPort 9999 #weinre --help  -->
+    <!-- <script src="http://10.0.3.88:9999/target/target-script-min.js#anonymous"></script>  -->
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="三匹马">
+    <!-- Add to Windows -->
+    <meta name="msapplication-TileColor" content="#49bc85">
+    <!-- qq -->
+
+    <script type="text/javascript">
+        function aa(){
+            document.getElementById("buy").value++;
+        }
+        function bb(){
+            x=document.getElementById("buy").value;
+            if(x>0)
+                document.getElementById("buy").value--;
+        }
+    </script>
+
+    <meta name="theme-color" content="#49bc85" data-online="#49bc85">
+    <title>用户中心 |三匹马</title>
+    <script th:inline="javascript">
+        function checkR(){
+
+            var modifyResult=[[${result}]];
+            if (modifyResult)
+            {
+                alert(modifyResult);
+            }
+        }
+    </script>
+<script type="text/javascript">
+  window.ga = function () {
+    (ga.q = ga.q || []).push(arguments);
+  };
+  ga.l = +new Date;
+  window.onerror = function () {
+    // 加载 vendor 报错
+    if (document.getElementById('root')) return;
+    // APP没有正确载入，用户不能使用，发送到 ga
+    ga('create', 'UA-88601817-1', 'auto'); // 使用模板渲染
+    ga('send', 'pageview'); // 发送事件前先要发送网页浏览匹配
+    ga('send', 'event', 'WebAPP', 'error', 'loadError');
+    console.log(Array.prototype.join.call(arguments, ','));
+    alert('初始化应用发生错误，请使用新版浏览器～\nAn error occurred while initializing the application. Please use a new browser.');
+  };
+  window.CDN_PATH = 'https://upzip.b0.upaiyun.com/fe';
+  window.VERSION = '6.6.5';
+  window.initInnerWidth = window.innerWidth;
+  window.initInnerHeight = window.innerHeight;
+  window.initRenderHref = window.location.href;
+</script>
+<link class="dynamic" rel="stylesheet"  data-href="/style.css" th:href="@{/css/style.css}">
+</head>
+<body >
+    <div style="display: none">
+      <img th:src="@{/img/spm2.jpg}" alt="SPM">
+
+    </div>
+    <div id="impress"><div data-reactroot="" id="root"><div id="app_wrap" class="false platform_false chrome 66.0.3359.181"><!-- react-empty: 3 --><!-- react-empty: 4 --><!-- react-empty: 5 --><div id="app_top_wrap" data-is-scroller="true" class=" none_select AppTopBar__main AppTopBar__showMenu null"><div tabindex="0" data-noautoblur="true" class="Modal__backdrop backdrop Modal__noafter undefined"><div role="dialog" class="
+            animate__downFadeIn
+            animate__mobileStartAnimate
+            Modal__modal
+            Modal__medium
+            Modal__fullscreen
+            false
+          "><div class="none_select Modal__header"><div class="Modal__title" role="heading">用户反馈</div><span role="button" class="none_select false Modal__close Ripple__main Ripple__overflow"><i class="icon_close"></i></span><span class="Modal__clearfloat"></span></div><div data-is-scroller="true" class="undefined Modal__children"><div class="
+        undefined
+        false
+        Input__tdtop
+        Input__main
+        undefined
+        false"><label for="t_2" class="
+            Input__td
+            Input__labelwrap
+            undefined
+            undefined
+            Input__breakline"><span class="
+              Input__label
+              Input__nozerowidth">描述</span></label><div class="
+          Input__inputwrap
+          Input__td
+          Input__fullwidth
+          undefined"><textarea class="
+        custom_scrollbar
+        undefined
+        Input__input
+        undefined
+        undefined
+        false
+        false
+        animate__startAnimate" id="t_2" required="" rows="10"></textarea></div></div></div><div class="Modal__actions"><button class="none_select undefined Ripple__main undefined"><!-- react-text: 22 -->提交<!-- /react-text --></button></div></div></div><div class="none_select AppTopBar__menu Ripple__main Ripple__overflow" title="菜单"><i class="AppTopBar__icon_menu null font_icon_13"></i></div><div class="AppTopBar__logo" data-text=""><a title="" class="none_select onlydesktop Ripple__main Ripple__overflow" th:href="@{/index}">
+        <img th:src="@{/img/spm2.jpg}" alt="SPM"></a><h1 class="hide_scrollbar onlymobile false">用户</h1></div><div class="AppTopBar__tips"><div class="AppTopBar__dropdowns dropdowns__dropdownwrap null"><div title="更多" class="none_select onlymobile undefined AppTopBar__actionitem Ripple__main Ripple__overflow">
+        <i class="undefined dropdowns__icon_mobile_dropdown_menu"></i></div><a class="onlydesktop AppTopBar__active" th:href="@{/userCenter}" th:text="${users.userName}"><!-- react-text: 37 --><!-- /react-text --></a><div class="dropdowns__dropdown"></div></div></div></div><div class="
+          Hint__hidden
+          Hint__main
+          Hint__opacity
+          false
+        "><div role="tooltip" class="null Hint__hint
+          ">Null</div></div><div id="app_bottom_wrap"><div class="Refresher__main Refresher__transition" style="transform: translateY(0px);"><div class="false">↓</div></div><nav class="AppMenus__main" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><div class="AppMenus__shadow"></div><ul data-is-scroller="true" role="menu" class="custom_scrollbar AppMenus__content">
+            <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/index}">
+                <li title="首页"><i class="icon_home font_icon_17 AppMenus__icon"></i><span class="text_overflow">首页</span></li></a>
+            <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/contact}">
+                <li title="联系档案"><i class="icon_gallery font_icon_16 AppMenus__icon"></i><span class="text_overflow">联系档案</span></li></a>
+        <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/myCart}">
+            <li title="购物车"><i class="icon_toolkit font_icon_16 AppMenus__icon"></i><span class="text_overflow">购物车</span></li></a>
+        <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/userCenter}">
+            <li title="个人信息"><i class="icon_category font_icon_18 AppMenus__icon"></i><span class="text_overflow">个人信息</span></li></a>
+            </ul>
+		
+		</nav><div id="main" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><main class="user__main"><div class="
+        Tabs__main
+        Tabs__flexgrow
+        undefined
+      ">
+        <div data-is-scroller="true" class="
+            hide_scrollbar
+            custom_scrollbar
+            Tabs__tab
+            false
+            Tabs__sticky
+          " role="tablist">
+        <div tabindex="0" role="tab" class="none_select
+          none_select
+          undefined
+          Tabs__label
+          undefined Tabs__activeTab Ripple__main undefined"><a th:href="@{/userCenter}">我的购物车</a></div>
+        </div>
+        <br/>
+        <br/>
+        <div th:each="carts:${carts}" style="border-width: 1px;border-color: red">
+            <p>111</p>
+            <div class="showalbumheader__main" th:each="clothDetail:${cloths}" th:if="${clothDetail.clothId}==${carts.clothId}">
+                <p>222</p>
+                <div class="showalbumheader__gallerycover" style="border: white;margin-right: 5em">
+                    <img alt=""  data-type="photo" th:src="@{{url}(url=${clothDetail.clothImage})}" width="100" >
+                </div>
+                <div class="showalbumheader__gallerydec">
+                    <h2><span class="showalbumheader__gallerytitle" th:text="${clothDetail.clothName}" style="margin: 1em"></span><span></span></h2>
+                    <div style="display: inline">
+                        <div  th:text="'价格'+' '+'￥'+' '+${clothDetail.clothPrice}" style="color: red;margin-left: 8em" ></div>
+                        <div  th:text="'折扣'+' '+${clothDetail.clothDiscount}+' '+'%'" style="color: #186bca;margin-left: 8em" ></div>
+                    </div>
+                    <form name="cart" th:action="@{/addClothToCart}" method="post">
+                        <div style="margin-left: 8em">
+                            <input type="button" value="-"  onclick="bb()">
+                            <input name="clothNum" type="text" value="0" id="buy" style="text-align: center">
+                            <input type="button" value="+" onclick="aa()">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    </main>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+</body></html>
