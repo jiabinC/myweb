@@ -24,30 +24,19 @@
 
     <link rel="search" title="SPM" href="" type="application/opensearchdescription+xml">
 
-    <script th:src="@{/js/jquery-3.0.0.js}"></script>
-    <script th:src="@{/js/jquery.fly.js}"></script>
 
-    <script>
-        $('.showalbumheader__gallerycover').on('click', addCart);
-        var num = 0;
-        function addCart(event) {
-            var offset = $('#end').offset(), flyer = $('![](img/1.jpg)');
-            flyer.fly({
-                start: {
-                    left: event.pageX,
-                    top: event.pageY
-                },
-                end: {
-                    left: offset.left + 280,
-                    top: offset.top,
-                    width: 0,
-                    height: 0
-                }
-            });
-            num++;
-            $('.cartBox span').text(num);
+
+    <script type="text/javascript">
+            function aa(){
+                document.getElementById("buy").value++;
+            }
+        function bb(){
+                x=document.getElementById("buy").value;
+            if(x>0)
+                document.getElementById("buy").value--;
         }
     </script>
+
 
 <!--[if lt IE 9]>
  <script>
@@ -156,13 +145,16 @@
                     <br />
                     <br />
                     <br />
-                    <div class="cartBox" style="position: absolute;left: 25em;top: 30em;">
-                        <div class="cart">
-                            <!--<i id="end"></i>-->
-                            <img alt=""  th:src="@{/img/cart.png}">
-                            <span style="color: red">0</span>
-                        </div>
+                    <form>
+                    <div style="margin-left: 3em">
+                        <input type="button" value="-" onclick="bb()">
+                        <input type="text" value="0" id="buy">
+                        <input type="button" value="+" onclick="aa()">
                     </div>
+                    <div>
+
+                    </div>
+                    </form>
                 </div>
             </div>
     

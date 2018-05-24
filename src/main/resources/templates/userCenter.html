@@ -18,7 +18,16 @@
 
     <meta name="theme-color" content="#49bc85" data-online="#49bc85">
     <title>用户中心 |三匹马</title>
+    <script th:inline="javascript">
+        function checkR(){
 
+            var modifyResult=[[${result}]];
+            if (modifyResult)
+            {
+                alert(modifyResult);
+            }
+        }
+    </script>
 <script type="text/javascript">
   window.ga = function () {
     (ga.q = ga.q || []).push(arguments);
@@ -42,7 +51,7 @@
 </script>
 <link class="dynamic" rel="stylesheet"  data-href="/style.css" th:href="@{/css/style.css}">
 
-<body>
+<body onload="checkR()">
     <div style="display: none">
       <img th:src="@{/img/spm2.jpg}" alt="SPM">
 
@@ -116,7 +125,8 @@
           none_select
           undefined
           Tabs__label
-           Ripple__main undefined" ><a th:href="@{/userCenterP}">账户安全</a></div></div><div class="mobilemargin"><form class="user__localform"><fieldset><legend>个人资料</legend><div class="user__row"><div class="
+           Ripple__main undefined" ><a th:href="@{/userCenterP}">账户安全</a></div></div><div class="mobilemargin">
+        <form class="user__localform" th:action="@{/modifyUser}" th:object="${users}" method="post"><fieldset><legend>个人资料</legend><div class="user__row"><div class="
         undefined
         Input__tdmiddle
         false
@@ -141,7 +151,7 @@
         undefined
         false
         false
-        animate__startAnimate" pattern=".{0,40}" id="t_nickname" name="nickname" required="" readonly="" maxlength="40" th:value="${users.userName}"></div></div><span class="onlydesktop user__decoration"></span></div><div class="user__row"><div class="
+        animate__startAnimate" id="t_nickname" name="userName" required="" readonly="" maxlength="40" th:value="${users.userName}"></div></div><span class="onlydesktop user__decoration"></span></div><div class="user__row"><div class="
         undefined
         Input__tdmiddle
         false
@@ -158,7 +168,7 @@
           Input__inputwrap
           Input__td
           Input__fullwidth
-          undefined"><input type="url" class="
+          undefined"><input type="text" class="
         custom_scrollbar
         undefined
         Input__input
@@ -166,7 +176,7 @@
         undefined
         false
         false
-        animate__startAnimate" id="t_4"  th:value="${users.userTel}"></div></div></div>
+        animate__startAnimate" id="t_4" name="userTel" th:value="${users.userTel}"></div></div></div>
         <div class="user__row">
             <div class="
         undefined
@@ -185,7 +195,7 @@
           Input__inputwrap
           Input__td
           Input__fullwidth
-          undefined"><input type="email" class="
+          undefined"><input type="text" class="
         custom_scrollbar
         undefined
         Input__input
@@ -193,7 +203,7 @@
         undefined
         false
         false
-        animate__startAnimate" id="t_5"  th:value="${users.userAddress}"></div></div>
+        animate__startAnimate" id="t_5" name="userAddress" th:value="${users.userAddress}"></div></div>
 </div><div class="user__row"><div class="
         undefined
         Input__tdmiddle
@@ -211,7 +221,7 @@
           Input__inputwrap
           Input__td
           Input__fullwidth
-          undefined"><input type="tel" class="
+          undefined"><input type="text" class="
         custom_scrollbar
         undefined
         Input__input
@@ -219,7 +229,7 @@
         undefined
         false
         false
-        animate__startAnimate" id="t_6"  th:value="${users.userSex}"></div></div></div>
+        animate__startAnimate" id="t_6" name="userSex" th:value="${users.userSex}"></div></div></div>
 		<div class="user__row"><div class="
         undefined
         Input__tdmiddle
@@ -237,7 +247,7 @@
           Input__inputwrap
           Input__td
           Input__fullwidth
-          undefined"><input type="tel" class="
+          undefined"><input type="text" class="
         custom_scrollbar
         undefined
         Input__input
@@ -245,7 +255,7 @@
         undefined
         false
         false
-        animate__startAnimate" id="t_6"  th:value="${users.userAge}"></div></div></div><div class="user__row"></div><!-- react-empty: 248 --><div class="
+        animate__startAnimate" id="t_6" name="userAge" th:value="${users.userAge}"></div></div></div><div class="user__row"></div><!-- react-empty: 248 --><div class="
         undefined
         Input__tdmiddle
         false
@@ -273,7 +283,7 @@
           undefined
           Input__fullwidth
           undefined"></div></div></div></div></div></div></fieldset>
-        <div class="user__save"><button class="alone">保存</button></div>
+        <div class="user__save"><button class="alone" type="submit">保存</button></div>
     </form><div tabindex="0" data-noautoblur="true" class="Modal__backdrop backdrop Modal__noafter undefined"></div><div tabindex="0" data-noautoblur="true" class="Modal__backdrop backdrop Modal__noafter undefined"></div></div></div></main></div></div><div tabindex="0" data-noautoblur="true" class="Modal__backdrop backdrop Modal__noafter undefined"></div><div class="undefined animate__mobileStartAnimate animate__fade Alert__backdrop backdrop"><div role="alertdialog" class="Alert__alert"><div class="Alert__icon Alert__success"><svg class="A_Success__svg undefined" viewBox="0 0 100 100"><g transform="translate(-48.913488,44.432998)"><path class="A_Success__circle" stroke-width="8.23575687" stroke-linecap="round" fill="none" stroke="#000" d="m 142.57137,-8.5855493 c 1.44397,4.457575 2.22424,9.21394314 2.22424,14.1525506 0,25.3399947 -20.54213,45.8821207 -45.882121,45.8821207 -25.339997,2e-6 -45.882123,-20.542124 -45.882123,-45.8821207 0,-25.3399973 20.542126,-45.8821203 45.882123,-45.8821203 10.074581,0 19.390771,3.247027 26.959161,8.75166"></path><path class="A_Success__affair" stroke-width="8.23575687" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#000" d="M 136.35222,-18.562557 87.080107,21.098347 70.668697,0.70988734"></path></g></svg></div><div class="Alert__contentwrap"></div></div></div><div class="
           Dropdowns__global
           false
