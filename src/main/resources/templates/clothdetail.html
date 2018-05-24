@@ -24,30 +24,19 @@
 
     <link rel="search" title="SPM" href="" type="application/opensearchdescription+xml">
 
-    <script th:src="@{/js/jquery-3.0.0.js}"></script>
-    <script th:src="@{/js/jquery.fly.js}"></script>
 
-    <script>
-        $('.showalbumheader__gallerycover').on('click', addCart);
-        var num = 0;
-        function addCart(event) {
-            var offset = $('#end').offset(), flyer = $('![](img/1.jpg)');
-            flyer.fly({
-                start: {
-                    left: event.pageX,
-                    top: event.pageY
-                },
-                end: {
-                    left: offset.left + 280,
-                    top: offset.top,
-                    width: 0,
-                    height: 0
-                }
-            });
-            num++;
-            $('.cartBox span').text(num);
+
+    <script type="text/javascript">
+            function aa(){
+                document.getElementById("buy").value++;
+            }
+        function bb(){
+                x=document.getElementById("buy").value;
+            if(x>0)
+                document.getElementById("buy").value--;
         }
     </script>
+
 
 <!--[if lt IE 9]>
  <script>
@@ -136,33 +125,44 @@
 </div>
 
             <div class="showalbumheader__main">
-                <div class="showalbumheader__gallerycover">
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div class="showalbumheader__gallerycover" style="border: white;margin-right: 5em">
+
                     <img alt=""  data-type="photo" th:src="@{{url}(url=${clothDetail.clothImage})}" width="350" >
                     <!--<img alt=""  data-type="photo" th:src="@{{url}(url=${clothDetail.clothImage})}" width="300" height="300">-->
                     <div class="showalbumheader__space"></div>
                 </div>
 
                 <div class="showalbumheader__gallerydec">
-                    <h2><span class="showalbumheader__gallerytitle" th:text="${clothDetail.clothName}" style="margin: 1em 1em 1em 1em"></span><span></span></h2>
-                    <div class="showalbumheader__gallerysubtitle htmlwrap__main" style="margin-left: 3.5em">
+                    <h2><span class="showalbumheader__gallerytitle" th:text="${clothDetail.clothName}" style="margin: 1em"></span><span></span></h2>
+                    <div class="showalbumheader__gallerysubtitle htmlwrap__main" style="margin-left: 9em">
                         简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介
                         简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介
 
 					</div>
                     <br />
-                    <div  th:text="'价格'+' '+'￥'+' '+${clothDetail.clothPrice}" style="color: red;margin-left: 3em" ></div>
+                    <div  th:text="'价格'+' '+'￥'+' '+${clothDetail.clothPrice}" style="color: red;margin-left: 8em" ></div>
                     <br />
-                    <div  th:text="'折扣'+' '+${clothDetail.clothDiscount}+' '+'%'" style="color: #186bca;margin-left: 3em" ></div>
+                    <div  th:text="'折扣'+' '+${clothDetail.clothDiscount}+' '+'%'" style="color: #186bca;margin-left: 8em" ></div>
                     <br />
                     <br />
                     <br />
-                    <div class="cartBox" style="position: absolute;left: 25em;top: 30em;">
-                        <div class="cart">
-                            <!--<i id="end"></i>-->
-                            <img alt=""  th:src="@{/img/cart.png}">
-                            <span style="color: red">0</span>
-                        </div>
+                    <form name="cart" th:action="@{}">
+                    <div style="margin-left: 8em">
+                        <input type="button" value="-"  onclick="bb()">
+                        <input name="num" type="text" value="0" id="buy" style="text-align: center">
+                        <input type="button" value="+" onclick="aa()">
                     </div>
+                        <!--<button class="alone reverse login__button null" type="submit">注册</button>-->
+                    <div style="margin: 3.8em;display: inline;">
+                        <button class="alone reverse login__button null" type="submit" style="width: 11.5em">加入购物车</button>
+                    </div>
+                        <img th:src="@{/img/cart.png}" style="margin-left: 20em">
+                    </form>
+
                 </div>
             </div>
     

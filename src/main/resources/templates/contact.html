@@ -26,26 +26,28 @@
         obj[prop] = opt.value;
       }
     })();
+
+
  </script>
 <![endif]-->
-<noscript>
-  <style>
-  * {
-    -ms-animation-play-state: running !important;
-    -o-animation-play-state: running !important;
-    -webkit-animation-play-state: running !important;
-    -moz-animation-play-state: running !important;
-    animation-play-state: running !important;
-  }
-  </style>
-</noscript>
+
+<script th:inline="javascript">
+    function check(){
+
+        var mailResult=[[${result}]];
+        if (mailResult)
+        {
+            alert(mailResult);
+        }
+    }
+</script>
 
 
 
         <link th:href="@{/css/usercontact.css}" rel="stylesheet">
 </head>
         
-<body>
+<body onload="check()">
         <div class="alert__main ">
             <div class="alert__alert">
                 <div class="alert__icon alert__success"><i class="icon_success font_icon_15"></i></div>
@@ -106,8 +108,8 @@
 
 
         </main>
-        <main class="usercontact__main htmlwrap__main">联系我们
-            <form class="contact_form">
+        <main class="usercontact__main htmlwrap__main">联系我们:
+            <form class="contact_form" th:action="@{/sendEmail}" method="post" name="mailForm">
                 <div class="input_email_title">
                     <text style="margin: 0.5em 0em"> 邮件主题: </text>
                     <input type="text" class="
@@ -137,7 +139,6 @@
                 </div>
                 <button class="alone reverse login__button null" type="submit" style="margin: 0em 20em">发送</button>
             </form>
-
 
 
 
