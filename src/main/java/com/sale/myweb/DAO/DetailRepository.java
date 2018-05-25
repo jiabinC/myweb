@@ -8,9 +8,4 @@ import org.springframework.stereotype.Repository;
 public interface DetailRepository extends JpaRepository<Detail,String> {
 
 
-
-
-
-
-
 }

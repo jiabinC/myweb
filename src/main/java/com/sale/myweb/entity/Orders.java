@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class Orders implements Serializable {
 
     Orders(){}
-    public Orders(String userAddress,String orderName,String orderState,String userTel,String orderTran,String detailId,String userId) {
+    public Orders(String userAddress,String orderState,String userTel,String orderTran,String detailId,String userId) {
         this.userAddress = userAddress;
         this.detailId = detailId;
         this.orderState = orderState;
