@@ -7,7 +7,10 @@ import com.sale.myweb.entity.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
+
+
 
 @Service
 public class CartsService {
@@ -18,6 +21,7 @@ public class CartsService {
         this.cartsRepository = cartsRepository;
     }
 
+    @Transactional
     public String addClothsToCarts(Carts carts) {
         if(cartsRepository.findByUserIdAndClothId(carts.getUserId(),carts.getClothId())==null) {
             cartsRepository.save(carts);
