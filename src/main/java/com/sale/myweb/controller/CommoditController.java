@@ -61,9 +61,11 @@ public class CommoditController {
 
         model.addAttribute("cloths",clothService.getClothByLikeName(clothName));
         model.addAttribute("users",session.getAttribute("user"));
+        model.addAttribute("num",clothService.getClothByLikeName(clothName).size());
 
         return "searchResult";
     }
+
 
 
 }
