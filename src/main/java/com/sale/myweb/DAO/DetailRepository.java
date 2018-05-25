@@ -1,12 +1,12 @@
 package com.sale.myweb.DAO;
 
-
-import com.sale.myweb.entity.Orders;
+import com.sale.myweb.entity.Detail;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface OrdersRepository extends JpaRepository<Orders,String>{
+public interface DetailRepository extends JpaRepository<Detail,String> {
+
 
 
 

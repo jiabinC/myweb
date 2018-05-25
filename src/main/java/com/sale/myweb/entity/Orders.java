@@ -3,22 +3,20 @@ package com.sale.myweb.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 public class Orders implements Serializable {
 
     Orders(){}
-    public Orders(String orderAddress,String orderName,String orderState,String orderTel,String orderTran) {
-        this.orderAddress = orderAddress;
-        this.orderName = orderName;
+    public Orders(String userAddress,String orderName,String orderState,String userTel,String orderTran,String detailId,String userId) {
+        this.userAddress = userAddress;
+        this.detailId = detailId;
         this.orderState = orderState;
-        this.orderTel = orderTel;
+        this.userTel = userTel;
         this.orderTran = orderTran;
+        this.userId = userId;
 
     }
 
@@ -27,64 +25,83 @@ public class Orders implements Serializable {
     @GeneratedValue(generator = "system-uuid")
     private String orderId;
 
-    @Column
-    private String orderAddress;
+
+
+
 
     @Column
-    private String orderTel;
+    private String userAddress;
+
+    @Column
+    private String userTel;
     @Column
     private String orderState;
     @Column
     private String orderTran;
-    @Column
-    private String orderName;
 
-    public String getOrderAddress() {
-        return orderAddress;
+    @Column
+    private String userId;
+
+    @Column
+    private String  detailId;
+
+
+
+    public String getUserAddress() {
+        return userAddress;
     }
 
     public String getOrderId() {
         return orderId;
     }
 
-    public String getOrderName() {
-        return orderName;
+    public String getUserId() {
+        return userId;
     }
 
     public String getOrderState() {
         return orderState;
     }
 
-    public String getOrderTel() {
-        return orderTel;
+    public String getUserTel() {
+        return userTel;
     }
 
     public String getOrderTran() {
         return orderTran;
     }
 
-    public void setOrderAddress(String orderAddress) {
-        this.orderAddress = orderAddress;
+    public void setUserAddress(String userAddress) {
+        this.userAddress = userAddress;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public void setOrderName(String orderName) {
-        this.orderName = orderName;
-    }
-
-    public void setOrderState(String orderState) {
-        this.orderState = orderState;
-    }
-
-    public void setOrderTel(String orderTel) {
-        this.orderTel = orderTel;
+    public void setDetailId(String detailId) {
+        this.detailId = detailId;
     }
 
     public void setOrderTran(String orderTran) {
         this.orderTran = orderTran;
     }
 
+    public void setOrderState(String orderState) {
+        this.orderState = orderState;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public void setUserTel(String userTel) {
+        this.userTel = userTel;
+    }
+
+    public String getDetailId() {
+        return detailId;
+    }
 }
+
+

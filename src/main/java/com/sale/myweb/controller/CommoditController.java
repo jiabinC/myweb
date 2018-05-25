@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -55,6 +52,17 @@ public class CommoditController {
         model.addAttribute("clothDetail",clothService.findByclothId(clothId));
 
         return "clothdetail";
+    }
+
+
+
+    @PostMapping("/searchCloth")
+    public String searchCloth(@RequestParam String clothName,ModelMap model,HttpSession session) {
+
+        model.addAttribute("cloths",clothService.getClothByLikeName(clothName));
+        model.addAttribute("users",session.getAttribute("user"));
+
+        return "searchResult";
     }
 
 
