@@ -79,11 +79,11 @@
         <div class="showheader__headerTop">
             <h1 class="text_overflow showheader__nickname">三匹马</h1>
             <div class="showheader__search">
-                <form method="get" action="" class="search__main showheader__searchInput">
+                <form method="get" th:action="@{/searchCloth}" class="search__main showheader__searchInput">
                     <input name="uid" type="hidden" value="1">
                     <div class="search__inputWrap search__td search__inputwrap">
                         <span class="icon_search font_icon_16 search__icon"></span>
-                        <input name="q" type="search" class="search__input search__clearable animate__startAnimate" placeholder="search" autocomplete="off" value="">
+                        <input name="clothName" type="search" class="search__input search__clearable animate__startAnimate" placeholder="search" autocomplete="off" value="">
                     </div>
                 </form>            </div>
         </div>

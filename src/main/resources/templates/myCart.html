@@ -16,14 +16,58 @@
     <!-- qq -->
 
     <script type="text/javascript">
-        function aa(){
-            document.getElementById("buy").value++;
+        var totalPrice=0;
+        var temPrice=0;
+        function aa(nametag){
+
+            var num=document.getElementsByName(nametag)[0].value;
+            num++;
+            document.getElementsByName(nametag)[0].value++;
+
+            var price=document.getElementsByName(nametag+"price")[0].value;
+            var price=Number(price);
+
+            var discount=document.getElementsByName(nametag+"discount")[0].value;
+            var discount=Number(discount)/100;
+
+            temPrice=num*price*discount;
+            alert(temPrice);
+
+            document.getElementsByName(nametag+"total")[0].value=temPrice;
+
+            sum();
         }
-        function bb(){
-            x=document.getElementById("buy").value;
-            if(x>0)
-                document.getElementById("buy").value--;
+        function bb(nametag){
+
+            var num=document.getElementsByName(nametag)[0].value;
+            if(num>0){
+                document.getElementsByName(nametag)[0].value--;
+                num--;
+            }
+
+            var price=document.getElementsByName(nametag+"price")[0].value;
+            var price=Number(price);
+
+            var discount=document.getElementsByName(nametag+"discount")[0].value;
+            var discount=Number(discount)/100;
+
+            temPrice=num*price*discount;
+            alert(temPrice);
+
+            document.getElementsByName(nametag+"total")[0].value=temPrice;
+
+            sub();
         }
+        function sum() {
+            totalPrice=totalPrice+temPrice;
+            alert(totalPrice);
+        }
+        function sub() {
+            totalPrice=totalPrice-temPrice;
+            alert(totalPrice);
+        }
+
+
     </script>
 
     <meta name="theme-color" content="#49bc85" data-online="#49bc85">
@@ -51,6 +95,12 @@
   window.initInnerHeight = window.innerHeight;
   window.initRenderHref = window.location.href;
 </script>
+    <!--<style type="text/css">-->
+        <!--.a11{-->
+            <!--height: 10px;-->
+            <!--width:  10px;-->
+        <!--}-->
+    <!--</style>-->
 <link class="dynamic" rel="stylesheet"  data-href="/style.css" th:href="@{/css/style.css}">
 </head>
 <body >
@@ -108,7 +158,9 @@
         <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/userCenter}">
             <li title="个人信息"><i class="icon_category font_icon_18 AppMenus__icon"></i><span class="text_overflow">个人信息</span></li></a>
             </ul>
-		
+
+
+
 		</nav><div id="main" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><main class="user__main"><div class="
         Tabs__main
         Tabs__flexgrow
@@ -132,30 +184,51 @@
 
 
 
-        <div th:each="carts:${carts}" style="border-color: red;border-width: 10px;padding: 1.5em;background-color: #f3f7f7">
+        <!--<form name="orderForm"  method="post">-->
+        <div th:each="carts:${carts}" style="padding: 1.5em;background-color: #f3f7f7">
             <div class="showalbumheader__main" th:each="clothDetail:${cloths}" th:if="${clothDetail.clothId}==${carts.clothId}" >
-                <div class="showalbumheader__gallerycover" style="float: left" >
-                    <img alt=""  data-type="photo" th:src="@{{url}(url=${clothDetail.clothImage})}" width="120" >
+                <div class="check-box" style="float: left;margin-right: 2em">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+
+                    <p><input th:name="${carts.clothId}+'checkbox'" type="checkbox" checked="checked">选中</p>
                 </div>
-                <div class="showalbumheader__gallerydec"style="float: left;">
-                    <h2><span class="showalbumheader__gallerytitle" th:text="${clothDetail.clothName}" style=""></span><span></span></h2>
+                <div class="showalbumheader__gallerycover" style="float: left" >
+                    <img alt=""  data-type="photo" th:src="@{{url}(url=${clothDetail.clothImage})}" width="200" >
+                </div>
+                <div class="showalbumheader__gallerydec" style="" >
+                    <span class="showalbumheader__gallerytitle" th:text="${clothDetail.clothName}" style=""></span>
                     <div style="display: inline">
                         <div  th:text="'价格'+' '+'￥'+' '+${clothDetail.clothPrice}" style="color: red;" ></div>
                         <div  th:text="'折扣'+' '+${clothDetail.clothDiscount}+' '+'%'" style="color: #186bca;" ></div>
                     </div>
-                    <form name="cart" th:action="@{/addClothToCart}" method="post">
-                        <div style="">
-                            <input th:name="${carts.clothId}" type="button" value="-"  onclick="bb()" style="width: 1em">
-                            <input th:name="${carts.clothId}" type="text" th:value="${carts.clothNum}" id="buy" style="text-align: center">
-                            <input th:name="${carts.clothId}" type="button" value="+" onclick="aa()"style="width: 1em">
+                    <div class="cartBox" name="cart">
+                        <div style="float: left">
+                            <input  th:name="${carts.clothId}+'price'" th:id="${carts.clothId}+'price'" type="text" th:value="${clothDetail.clothPrice}" hidden >
+                            <input  th:name="${carts.clothId}+'discount'" th:id="${carts.clothId}+'discount'" type="text" th:value="${clothDetail.clothDiscount}" hidden>
+                            <input  th:name="${carts.clothId}+'total'" type="text" value="0">
+
+                            <input class="a11" type="button" value="-"  th:onclick="'javascript:bb(\''+${carts.clothId}+'\');'" style="">
+                            <input th:name="${carts.clothId}" type="text" th:value="${carts.clothNum}" id="buy" style="text-align: center;">
+                            <input type="button" value="+" th:onclick="'javascript:aa(\''+${carts.clothId}+'\');'" style="">
                         </div>
-                    </form>
+                    </div>
 
                 </div>
+
             </div>
             <br/>
             <br/>
+
         </div>
+        <div style="margin-top: 5em">
+        <p align="center">总共<input>元</p>
+        <button class="alone reverse login__button null" type="submit">提交订单</button>
+        </div>
+        <!--</form>-->
 
 
     </div>
@@ -172,8 +245,9 @@
     </div>
 
 
+<script>
 
-
+</script>
 
 
 
