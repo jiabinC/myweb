@@ -23,7 +23,10 @@
             var num=document.getElementsByName(nametag)[0].value;
             num++;
             document.getElementsByName(nametag)[0].value++;
-            document.getElementsByName(nametag+"checkbox2")[0].value++;
+            var tempN=num+"/";
+            alert(tempN);
+            document.getElementsByName(nametag+"checkbox2")[0].value=tempN;
+
 
             var price=document.getElementsByName(nametag+"price")[0].value;
             var price=Number(price);
@@ -32,7 +35,7 @@
             var discount=Number(discount)/100;
 
             temPrice=num*price;
-            alert(temPrice);
+
 
             document.getElementsByName(nametag+"total")[0].value=temPrice;
 
@@ -43,8 +46,10 @@
             var num=document.getElementsByName(nametag)[0].value;
             if(num>0){
                 document.getElementsByName(nametag)[0].value--;
-                document.getElementsByName(nametag+"checkbox2")[0].value--;
+
                 num--;
+                var tempN=num+"/";
+                document.getElementsByName(nametag+"checkbox2")[0].value=tempN;
             }
 
             var price=document.getElementsByName(nametag+"price")[0].value;
@@ -54,7 +59,7 @@
             var discount=Number(discount)/100;
 
             temPrice=num*price;
-            alert(temPrice);
+
 
             document.getElementsByName(nametag+"total")[0].value=temPrice;
 
@@ -62,35 +67,41 @@
         }
         function sum() {
             totalPrice=totalPrice+temPrice;
-            alert(totalPrice);
+
         }
         function sub() {
             totalPrice=totalPrice-temPrice;
-            alert(totalPrice);
+
         }
-        function testcheck(nametag) {
-            var test=document.getElementsByName(nametag+"checkbox1")[0].checked;
-            var test1=document.getElementsByName(nametag+"checkbox1")[0].value;
-            var test2=document.getElementsByName(nametag+"checkbox2")[0].checked;
-            var test3=document.getElementsByName(nametag+"checkbox2")[0].value;
-            alert(test);
-            alert(test1);
-            alert(test2);
-            alert(test3);
-        }
+
         function synchro(nametag) {
             var test=document.getElementsByName(nametag+"checkbox1")[0].checked;
 
-            alert(test);
+
             if(test){
-                alert("已选中");
+
                 document.getElementsByName(nametag+"checkbox2")[0].checked=true;
             }
             else{
-                alert("未选中");
+
                 document.getElementsByName(nametag+"checkbox2")[0].checked=false;
             }
 
+        }
+        var result="";
+        function lock(nametag) {
+            var tempId=document.getElementsByName(nametag+"checkbox1")[0].value;
+
+            var tempNum=document.getElementsByName(nametag+"checkbox2")[0].value;
+            var tempR= tempId.concat(tempNum);
+
+
+            result+=tempR;
+            alert(result);
+            document.getElementsByName(nametag+"bt-")[0].disabled=true;
+            document.getElementsByName(nametag+"bt+")[0].disabled=true;
+            document.getElementsByName(nametag+"btl")[0].disabled=true;
+            document.getElementsByName(nametag)[0].disabled=true;
         }
 
     </script>
@@ -219,9 +230,9 @@
                         <br/>
                         <br/>
                         <br/>
-                        <p><input th:name="${carts.clothId}+'checkbox1'" type="checkbox" th:value="${clothDetail.clothPrice}" checked th:onclick="'javascript:synchro(\''+${carts.clothId}+'\');'" style="-webkit-appearance: checkbox"></p>
-                        <p><input th:name="${carts.clothId}+'checkbox2'" type="checkbox" th:value="${carts.clothNum}" checked hidden></p>
-                        <input type="button" th:onclick="'javascript:testcheck(\''+${carts.clothId}+'\');'">
+                        <p><input th:name="${carts.clothId}+'checkbox1'" type="checkbox" th:value="${clothDetail.clothId}+','" checked th:onclick="'javascript:synchro(\''+${carts.clothId}+'\');'" style="-webkit-appearance: checkbox"></p>
+                        <p><input th:name="${carts.clothId}+'checkbox2'" type="checkbox" th:value="${carts.clothNum}+'/'" checked hidden></p>
+                        <input type="button" th:onclick="'javascript:testcheck(\''+${carts.clothId}+'\');'" hiddengi>
                     </div>
                     <div class="showalbumheader__gallerycover" style="float: left" >
                         <img alt=""  data-type="photo" th:src="@{{url}(url=${clothDetail.clothImage})}" width="200" >
@@ -236,11 +247,12 @@
                             <div style="float: left">
                                 <input  th:name="${carts.clothId}+'price'" th:id="${carts.clothId}+'price'" type="text" th:value="${clothDetail.clothPrice}" hidden >
                                 <input  th:name="${carts.clothId}+'discount'" th:id="${carts.clothId}+'discount'" type="text" th:value="${clothDetail.clothDiscount}" hidden>
-                                <input  th:name="${carts.clothId}+'total'" type="text" value="0">
+                                <input  th:name="${carts.clothId}+'total'" type="text" value="0" hidden>
 
-                                <input class="a11" type="button" value="-"  th:onclick="'javascript:bb(\''+${carts.clothId}+'\');'" style="">
-                                <input th:name="${carts.clothId}" type="text" th:value="${carts.clothNum}" id="buy" style="text-align: center;">
-                                <input type="button" value="+" th:onclick="'javascript:aa(\''+${carts.clothId}+'\');'" style="">
+                                <input th:name="${carts.clothId}+'bt-'" type="button" value="-"  th:onclick="'javascript:bb(\''+${carts.clothId}+'\');'" style="-webkit-appearance: button">
+                                <input th:name="${carts.clothId}" type="text" th:value="${carts.clothNum}" id="buy" style="text-align: center;-webkit-appearance: textarea">
+                                <input th:name="${carts.clothId}+'bt+'" type="button" value="+" th:onclick="'javascript:aa(\''+${carts.clothId}+'\');'" style="-webkit-appearance: button">
+                                <input th:name="${carts.clothId}+'btl'" type="button" value="lock" th:onclick="'javascript:lock(\''+${carts.clothId}+'\');'" style="-webkit-appearance: button">
                             </div>
                         </div>
 
