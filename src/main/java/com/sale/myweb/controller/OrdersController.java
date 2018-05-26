@@ -1,6 +1,4 @@
 package com.sale.myweb.controller;
-
-
 import com.sale.myweb.entity.Detail;
 import com.sale.myweb.entity.Orders;
 import com.sale.myweb.entity.Users;
@@ -22,7 +20,6 @@ public class OrdersController {
     @Autowired
     DetailSercice detailSercice;
 
-
     @PostMapping("/generateOrder")
     public String generateOrder(ModelMap model, HttpSession session,@RequestParam Detail...details) {
         Users users = (Users)session.getAttribute("user");
@@ -42,9 +39,6 @@ public class OrdersController {
             detailSercice.addDetail(details[k]);
 
         }
-
-
-
         return "success";
     }
 }
