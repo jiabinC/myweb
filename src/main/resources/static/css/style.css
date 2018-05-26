@@ -2,6 +2,15 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 .showalbumheader__main{width:100%;max-width:1440px;padding:1.3em 2em 0;margin:0 auto;table-layout:fixed;display:table}@media (min-width:0px){.showalbumheader__main{display:block}}.showalbumheader__separator{display:inline-block;height:1em;width:1px;margin:0 .6em -.15em;background:currentColor}.showalbumheader__gallerycover{position:relative;overflow:hidden;float:left;border:1px solid #cfcfcf}.showalbumheader__space{position:relative;width:8.8em;height:8.8em;border:.3em solid #fff}.showalbumheader__gallerydec{width:100%;min-height:6em;padding-left:20.3em}.showalbumheader__gallerydec h2{text-transform:none}.showalbumheader__gallerydec .showalbumheader__gallerytitle{margin: 0.5em 1em 0.5em 1em;}.showalbumheader__gallerytitle{font-size:1.125em;line-height:2}.showalbumheader__gallerydec .showalbumheader__gallerysubtitle{min-height:4.5em;line-height:1.3;margin-bottom:.5em}.showalbumheader__tabgroup{font-size:.75em}.showalbumheader__tabgroup .showalbumheader__button{background:#fff;color:#9f9f9f;padding:.8em 1.333em;border:1px solid #9f9f9f;margin-right:0;border-radius:0;min-width:4em;text-align:center;display:block;float:right}.showalbumheader__tabgroup .showalbumheader__button+.showalbumheader__button{margin-right:-1px}.showalbumheader__tabgroup .showalbumheader__button.showalbumheader__right{border-radius:.5em 0 0 .5em}.showalbumheader__tabgroup .showalbumheader__button.showalbumheader__left{border-radius:0 .5em .5em 0}.showalbumheader__tabgroup .showalbumheader__button.showalbumheader__active{color:#49bc85}.showalbumheader__tabgroup:after{content:"";clear:both;display:block}@media (max-width:640px){.showalbumheader__main{padding:1em 1em 0}.showalbumheader__gallerycover,.showalbumheader__space{border:none}.showalbumheader__space{width:5em;height:5em}.showalbumheader__gallerydec{min-height:5em;padding-left:6em}.showalbumheader__gallerydec .showalbumheader__gallerytitle{line-height:1.2}.showalbumheader__gallerydec .showalbumheader__gallerysubtitle{min-height:1.9em}.showalbumheader__tabgroup .showalbumheader__button,.showalbumheader__tabgroup .showalbumheader__download{padding:.5em;line-height:1;margin:0}}
 
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.5em;
+}
+.flex-container .flex-item{
+    padding:1.5em;
+}
 
 
 
