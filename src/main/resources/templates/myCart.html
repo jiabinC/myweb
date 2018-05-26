@@ -67,11 +67,28 @@
             alert(totalPrice);
         }
         function testcheck(nametag) {
-            var test=document.getElementsByName(nametag+"checkbox")[0].checked;
+            var test=document.getElementsByName(nametag+"checkbox1")[0].checked;
+            var test1=document.getElementsByName(nametag+"checkbox1")[0].value;
+            var test2=document.getElementsByName(nametag+"checkbox2")[0].checked;
+            var test3=document.getElementsByName(nametag+"checkbox2")[0].value;
             alert(test);
+            alert(test1);
+            alert(test2);
+            alert(test3);
         }
-        function test1() {
-            
+        function synchro(nametag) {
+            var test=document.getElementsByName(nametag+"checkbox1")[0].checked;
+
+            alert(test);
+            if(test){
+                alert("已选中");
+                document.getElementsByName(nametag+"checkbox2")[0].checked=true;
+            }
+            else{
+                alert("未选中");
+                document.getElementsByName(nametag+"checkbox2")[0].checked=false;
+            }
+
         }
 
     </script>
@@ -110,6 +127,7 @@
 <link class="dynamic" rel="stylesheet"  data-href="/style.css" th:href="@{/css/style.css}">
 </head>
 <body >
+
     <div style="display: none">
       <img th:src="@{/img/spm2.jpg}" alt="SPM">
 
@@ -190,8 +208,11 @@
 
 
 
-        <!--<form name="orderForm"  method="post">-->
-        <div th:each="carts:${carts}" style="padding: 1.5em;background-color: #f3f7f7" id="container">
+        <form name="orderForm"  method="post">
+
+
+
+            <div th:each="carts:${carts}" style="padding: 1.5em;background-color: #f3f7f7" th:id="${carts.clothId}+'container'">
             <div class="showalbumheader__main" th:each="clothDetail:${cloths}" th:if="${clothDetail.clothId}==${carts.clothId}" th:id="${carts.clothId}+'id'">
                 <div class="check-box" style="float: left;margin-right: 2em">
                     <br/>
@@ -200,7 +221,8 @@
                     <br/>
                     <br/>
 
-                    <p><input th:name="${carts.clothId}+'checkbox'" type="checkbox" value="选中" checked></p>
+                    <p><input th:name="${carts.clothId}+'checkbox1'" type="checkbox" value="1111" checked th:onclick="'javascript:synchro(\''+${carts.clothId}+'\');'" style="-webkit-appearance: checkbox"></p>
+                    <p><input th:name="${carts.clothId}+'checkbox2'" type="checkbox" value="2222" checked hidden></p>
                     <input type="button" th:onclick="'javascript:testcheck(\''+${carts.clothId}+'\');'">
                 </div>
                 <div class="showalbumheader__gallerycover" style="float: left" >
@@ -231,11 +253,14 @@
             <br/>
 
         </div>
-        <div style="margin-top: 5em">
-        <p align="center">总共<input>元</p>
-        <button class="alone reverse login__button null" type="submit">提交订单</button>
-        </div>
-        <!--</form>-->
+
+
+
+            <div style="margin-top: 5em">
+            <p align="center">总共<input>元</p>
+            <button class="alone reverse login__button null" type="submit">提交订单</button>
+            </div>
+        </form>
 
 
     </div>
@@ -251,6 +276,8 @@
     </div>
     </div>
 
+
+    <p><input type="checkbox" value="1111" checked ></p>
 
 <script>
 
