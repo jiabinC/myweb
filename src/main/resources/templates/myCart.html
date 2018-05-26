@@ -30,7 +30,7 @@
             var discount=document.getElementsByName(nametag+"discount")[0].value;
             var discount=Number(discount)/100;
 
-            temPrice=num*price*discount;
+            temPrice=num*price;
             alert(temPrice);
 
             document.getElementsByName(nametag+"total")[0].value=temPrice;
@@ -51,7 +51,7 @@
             var discount=document.getElementsByName(nametag+"discount")[0].value;
             var discount=Number(discount)/100;
 
-            temPrice=num*price*discount;
+            temPrice=num*price;
             alert(temPrice);
 
             document.getElementsByName(nametag+"total")[0].value=temPrice;
@@ -66,7 +66,13 @@
             totalPrice=totalPrice-temPrice;
             alert(totalPrice);
         }
-
+        function testcheck(nametag) {
+            var test=document.getElementsByName(nametag+"checkbox")[0].checked;
+            alert(test);
+        }
+        function test1() {
+            
+        }
 
     </script>
 
@@ -185,8 +191,8 @@
 
 
         <!--<form name="orderForm"  method="post">-->
-        <div th:each="carts:${carts}" style="padding: 1.5em;background-color: #f3f7f7">
-            <div class="showalbumheader__main" th:each="clothDetail:${cloths}" th:if="${clothDetail.clothId}==${carts.clothId}" >
+        <div th:each="carts:${carts}" style="padding: 1.5em;background-color: #f3f7f7" id="container">
+            <div class="showalbumheader__main" th:each="clothDetail:${cloths}" th:if="${clothDetail.clothId}==${carts.clothId}" th:id="${carts.clothId}+'id'">
                 <div class="check-box" style="float: left;margin-right: 2em">
                     <br/>
                     <br/>
@@ -194,7 +200,8 @@
                     <br/>
                     <br/>
 
-                    <p><input th:name="${carts.clothId}+'checkbox'" type="checkbox" checked="checked">选中</p>
+                    <p><input th:name="${carts.clothId}+'checkbox'" type="checkbox" value="选中" checked></p>
+                    <input type="button" th:onclick="'javascript:testcheck(\''+${carts.clothId}+'\');'">
                 </div>
                 <div class="showalbumheader__gallerycover" style="float: left" >
                     <img alt=""  data-type="photo" th:src="@{{url}(url=${clothDetail.clothImage})}" width="200" >
