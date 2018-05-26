@@ -113,13 +113,17 @@
 </div>
 
     <main class="showindex__gallerycardwrap">
+        <div class="result_number">
+            <p th:text="'共查询到'+${num}+'个结果'" style="color: red"></p>
+            <br/>
+        </div>
         <div class="showindex__parent" >
             <div class="album3__title">
                 <!--&lt;!&ndash;<br />&ndash;&gt;-->
                 <!--<p th:text="${type}" style="color: grey;font-size: 25px;background-color: palegoldenrod"  ></p>-->
                 <!--<br />-->
             </div>
-            <div th:each="cloth:${allCloths}" class="showindex__children">
+            <div th:each="cloth:${cloths}" class="showindex__children">
                 <a class="album3__main" data-album-id="13597163" th:title="${cloth.clothName}" th:href="@{clothdetail?(clothId=${cloth.clothId})}">
                     <div class="album__imgwrap">
                         <img alt="" data-type="photo" class="album__absolute album__img autocover" th:src="@{{url}(url=${cloth.clothImage})}" data-origin-src="">
