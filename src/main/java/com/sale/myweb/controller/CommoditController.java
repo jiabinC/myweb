@@ -53,6 +53,7 @@ public class CommoditController {
 
 
 
+
     @PostMapping("/searchCloth")
     public String searchCloth(@RequestParam String clothName,ModelMap model,HttpSession session) {
 

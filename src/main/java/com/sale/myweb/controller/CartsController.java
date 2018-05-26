@@ -28,7 +28,7 @@ public class CartsController {
         this.clothService = clothService;
     }
 
-    @PostMapping("addClothToCart")
+    @PostMapping("/addClothToCart")
     public String addClothToCart(@RequestParam String clothId, @RequestParam String clothNumber, HttpSession session, ModelMap model) {
         if(session.getAttribute("user")==null){
             model.addAttribute("result","您还没有登陆，请先登陆！");
