@@ -1,15 +1,12 @@
 package com.sale.myweb.controller;
 
-import com.sale.myweb.entity.Cloth;
 import com.sale.myweb.services.ClothService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
