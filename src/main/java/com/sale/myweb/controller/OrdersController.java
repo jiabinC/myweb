@@ -42,6 +42,7 @@ public class OrdersController {
 
         double totalPrice=0 ;
         for (int i=0;i<split.length;i++) {
+
           totalPrice = totalPrice + Double.parseDouble(split[i].split(",")[0]) * Double.parseDouble(split[i].split(",")[1])*Double.parseDouble(clothService.findByclothId(split[i].split(",")[0]).getClothDiscount())*0.01;
 
         }
