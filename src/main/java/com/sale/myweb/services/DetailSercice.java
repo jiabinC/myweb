@@ -5,6 +5,8 @@ import com.sale.myweb.entity.Detail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DetailSercice {
     private final DetailRepository detailRepository;
@@ -18,5 +20,9 @@ public class DetailSercice {
     public Detail addDetail(Detail detail) {
        return detailRepository.save(detail);
 
+    }
+
+    public List getAllDetails() {
+        return detailRepository.findAll();
     }
 }

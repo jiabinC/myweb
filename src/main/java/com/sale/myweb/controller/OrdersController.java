@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class OrdersController {
@@ -21,24 +22,30 @@ public class OrdersController {
     DetailSercice detailSercice;
 
     @PostMapping("/generateOrder")
-    public String generateOrder(ModelMap model, HttpSession session,@RequestParam Detail...details) {
+    public String generateOrder(ModelMap model, HttpSession session,@RequestParam String value) {
+
+        String[] split= value.split("/");
         Users users = (Users)session.getAttribute("user");
-        if(details.length==0) {
+        if(split.length==0) {
             model.addAttribute("result","请至少选择一种商品");
             model.addAttribute("users",session.getAttribute("user"));
             return "myCart";
         }
-        Detail detailTemplate = details[0];
-        Detail detail1 = detailSercice.addDetail(detailTemplate);
+        String[] split1 = split[0].split(",");
+        Detail detail = new Detail(split1[0],split1[1]);
+        Detail detail1 = detailSercice.addDetail(detail);
         String detailId =  detail1.getDetailId();
 
         Orders orders = new Orders(users.getUserAddress(),"审核中",users.getUserTel(),"待交付",detailId,users.getUserId());
         orderService.produceOrder(orders);
         int k;
-        for (k =1;k < details.length; k++ ) {
-            detailSercice.addDetail(details[k]);
+        for (k =1;k < split.length; k++ ) {
+            detailSercice.addDetail(new Detail(split[k].split(",")[0],split[k].split(",")[1]));
 
         }
-        return "success";
+        List myOrders = orderService.getOrdersByUserId(users.getUserId());
+        model.addAttribute("orders",myOrders);
+        model.addAttribute("details",detailSercice.getAllDetails());
+        return "myOrder";
     }
 }

@@ -234,18 +234,23 @@
                         <br/>
                         <br/>
                         <p><input th:name="${carts.clothId}+'checkbox1'" type="checkbox" th:value="${clothDetail.clothId}+','" checked th:onclick="'javascript:synchro(\''+${carts.clothId}+'\');'" style="-webkit-appearance: checkbox"></p>
-                        <p><input th:name="${carts.clothId}+'checkbox2'" type="checkbox" th:value="${carts.clothNum}+'/'" checked hidden></p>
-                        <input type="button" th:onclick="'javascript:testcheck(\''+${carts.clothId}+'\');'" hidden>
+                        <p><input th:name="${carts.clothId}+'checkbox2'"  type="checkbox" th:value="${carts.clothNum}+'/'" checked style="visibility: hidden"></p>
+                        <input type="button" th:onclick="'javascript:testcheck(\''+${carts.clothId}+'\');'" hiddengi style="visibility: hidden">
+
                     </div>
                     <div class="showalbumheader__gallerycover" style="float: left" >
                         <img alt=""  data-type="photo" th:src="@{{url}(url=${clothDetail.clothImage})}" width="200" >
                     </div>
+                    <br/>
                     <div class="showalbumheader__gallerydec" style="" >
-                        <span class="showalbumheader__gallerytitle" th:text="${clothDetail.clothName}" style=""></span>
+                        <span  th:text="${clothDetail.clothName}" style=""></span>
+                        <br/><br/>
                         <div style="display: inline">
-                            <div  th:text="'价格'+' '+'￥'+' '+${clothDetail.clothPrice}" style="color: red;" ></div>
+                            <div  th:text="'价格'+' '+'￥'+' '+${clothDetail.clothPrice}" style="color: red; font-size: 25px"   ></div>
+                            <br/><br/>
                             <div  th:text="'折扣'+' '+${clothDetail.clothDiscount}+' '+'%'" style="color: #186bca;" ></div>
                         </div>
+                        <br/>
                         <div class="cartBox" name="cart">
                             <div style="float: left">
                                 <input  th:name="${carts.clothId}+'price'" th:id="${carts.clothId}+'price'" type="text" th:value="${clothDetail.clothPrice}" hidden >
