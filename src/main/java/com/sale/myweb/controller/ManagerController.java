@@ -2,9 +2,11 @@ package com.sale.myweb.controller;
 
 import com.sale.myweb.entity.Manager;
 import com.sale.myweb.services.ManagerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -15,6 +17,7 @@ public class ManagerController {
 
     private ManagerService managerService;
 
+    @Autowired
     public ManagerController(ManagerService managerService) {
         this.managerService = managerService;
     }
@@ -52,8 +55,8 @@ public class ManagerController {
     }
 
     @PostMapping("/adminCenter")
-    public String adminCenter(@RequestParam Manager manager,ModelMap model) {
-        if (manager.getManagerId() == managerService.getManager().getManagerId() && manager.getManagerPassword() == managerService.getManager().getManagerPassword()) {
+    public String adminCenter(@ModelAttribute Manager manager, ModelMap model) {
+        if (manager.getManagerId().equals(managerService.getManager().getManagerId() )&& manager.getManagerPassword().equals(managerService.getManager().getManagerPassword())) {
             return "adminCenter";
         } else{
             model.addAttribute("result","账号或密码错误");

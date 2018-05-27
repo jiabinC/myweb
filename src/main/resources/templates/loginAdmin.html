@@ -263,7 +263,7 @@
 
 
 
-      <form class="login__form" th:action="@{/adminCenter}" method="post" th:object="${users}">
+      <form class="login__form" th:action="@{/adminCenter}" method="post" th:object="${manager}">
         <p style="margin: 1;font-size: 2em" align="center">管理员登录</p>
         <div class="login__tipswrap"><!-- react-empty: 56 --></div>
         <div th:text="${result}" style="color: red"></div>
