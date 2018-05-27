@@ -1,6 +1,8 @@
 package com.sale.myweb.controller;
 
+import com.sale.myweb.entity.Cloth;
 import com.sale.myweb.entity.Manager;
+import com.sale.myweb.services.ClothService;
 import com.sale.myweb.services.ManagerService;
 import com.sale.myweb.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +20,13 @@ public class ManagerController {
 
     private ManagerService managerService;
     private UserService userService;
+    private ClothService clothService;
 
     @Autowired
-    public ManagerController(ManagerService managerService,UserService userService) {
+    public ManagerController(ManagerService managerService,UserService userService,ClothService clothService) {
         this.managerService = managerService;
         this.userService = userService;
-
+        this.clothService = clothService;
     }
     @GetMapping("/loginAdmin")
     public String loginAdmin() {
@@ -76,5 +79,14 @@ public class ManagerController {
     public String userInformation(@RequestParam String userName,ModelMap model ) {
         model.addAttribute("users",userService.findByUserName(userName));
         return "userCenter";
+    }
+
+    @PostMapping("/modifyCloth")
+    public String modifyCloth(@ModelAttribute Cloth cloth,ModelMap model) {
+        clothService.addCloth(cloth);
+        List allCloths = managerService.getAllClothOfManager();
+        model.addAttribute("allCloths",allCloths);
+        return "clothInformation";
+
     }
 }

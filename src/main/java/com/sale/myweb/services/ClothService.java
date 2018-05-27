@@ -58,4 +58,8 @@ public class ClothService {
         return clothRepository.findByClothId(clothId);
     }
 
+    public void addCloth(Cloth cloth) {
+        clothRepository.save(cloth);
+    }
+
 }

@@ -17,7 +17,7 @@
     <!-- qq -->
 
     <meta name="theme-color" content="#49bc85" data-online="#49bc85">
-    <title>用户中心 |三匹马</title>
+    <title>管理员中心  |三匹马</title>
     <script th:inline="javascript">
         function checkR(){
 
@@ -101,12 +101,10 @@
                 <li title="首页"><i class="icon_home font_icon_17 AppMenus__icon"></i><span class="text_overflow">首页</span></li></a>
             <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/contact}">
                 <li title="联系档案"><i class="icon_gallery font_icon_16 AppMenus__icon"></i><span class="text_overflow">联系档案</span></li></a>
-        <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/myCart}">
-            <li title="购物车"><i class="icon_toolkit font_icon_16 AppMenus__icon"></i><span class="text_overflow">购物车</span></li></a>
-        <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/myOrder}">
-            <li title="订单"><i class="icon_toolkit font_icon_16 AppMenus__icon"></i><span class="text_overflow">我的订单</span></li></a>
-        <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/userCenter}">
-            <li title="个人信息"><i class="icon_category font_icon_18 AppMenus__icon"></i><span class="text_overflow">个人信息</span></li></a>
+        <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/userAnalysis}">
+            <li title="用户信息"><i class="icon_category font_icon_18 AppMenus__icon"></i><span class="text_overflow">用户信息</span></li></a>
+        <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/clothInformation}">
+            <li title="服装信息"><i class="icon_category font_icon_18 AppMenus__icon"></i><span class="text_overflow">服装信息</span></li></a>
             </ul>
 		
 		</nav><div id="main" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><main class="user__main"><div class="
@@ -137,19 +135,19 @@
             <tr th:each="man:${mans}" style="height: 2em" >
 
                     <td>
-                        <a th:href="@{man?(userId=${cloth.clothId})}" th:text="${man.userName}"></a>
+                        <a th:href="@{/userInformation?(userName=${man.userName})}" th:text="${man.userName}"></a>
                     </td>
                     <td >
-                        <a th:href="@{/index}" th:text="${man.userTel}"></a>
+                        <a th:href="@{/userInformation?(userName=${man.userName})}" th:text="${man.userTel}"></a>
                     </td>
                     <td >
-                        <a th:href="@{/index}" th:text="${man.userAddress}"></a>
+                        <a th:href="@{/userInformation?(userName=${man.userName})}" th:text="${man.userAddress}"></a>
                     </td>
                     <td >
-                        <a th:href="@{/index}" th:text="${man.userSex}"></a>
+                        <a th:href="@{/userInformation?(userName=${man.userName})}" th:text="${man.userSex}"></a>
                     </td>
                     <td >
-                        <a th:href="@{/index}" th:text="${man.userAge}"></a>
+                        <a th:href="@{/userInformation?(userName=${man.userName})}" th:text="${man.userAge}"></a>
                     </td>
 
             </tr>
