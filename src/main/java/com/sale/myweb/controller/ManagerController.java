@@ -36,6 +36,10 @@ public class ManagerController {
         List mans = managerService.gerUsersBySex("男");
         int manNum = mans.size();
 
+        model.addAttribute("womens",womens);
+        model.addAttribute("mans",mans);
+        model.addAttribute("womenNum",womenNum);
+        model.addAttribute("manNum",manNum);
 
         return "userAnalysis";
     }
@@ -48,7 +52,14 @@ public class ManagerController {
     }
 
     @PostMapping("/adminCenter")
-    public String adminCenter(@RequestParam Manager manager) {
-        return "adminCenter";
+    public String adminCenter(@RequestParam Manager manager,ModelMap model) {
+        if (manager.getManagerId() == managerService.getManager().getManagerId() && manager.getManagerPassword() == managerService.getManager().getManagerPassword()) {
+            return "adminCenter";
+        } else{
+            model.addAttribute("result","账号或密码错误");
+            return "loginAdmin";
+
+        }
+
     }
 }
