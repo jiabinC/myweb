@@ -2,6 +2,7 @@ package com.sale.myweb.controller;
 
 import com.sale.myweb.entity.Manager;
 import com.sale.myweb.services.ManagerService;
+import com.sale.myweb.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -16,10 +17,13 @@ import java.util.List;
 public class ManagerController {
 
     private ManagerService managerService;
+    private UserService userService;
 
     @Autowired
-    public ManagerController(ManagerService managerService) {
+    public ManagerController(ManagerService managerService,UserService userService) {
         this.managerService = managerService;
+        this.userService = userService;
+
     }
     @GetMapping("/loginAdmin")
     public String loginAdmin() {
@@ -56,7 +60,9 @@ public class ManagerController {
 
     @PostMapping("/adminCenter")
     public String adminCenter(@ModelAttribute Manager manager, ModelMap model) {
+
         if (manager.getManagerId().equals(managerService.getManager().getManagerId() )&& manager.getManagerPassword().equals(managerService.getManager().getManagerPassword())) {
+
             return "adminCenter";
         } else{
             model.addAttribute("result","账号或密码错误");
@@ -64,5 +70,11 @@ public class ManagerController {
 
         }
 
+    }
+
+    @GetMapping("/userInformation")
+    public String userInformation(@RequestParam String userName,ModelMap model ) {
+        model.addAttribute("users",userService.findByUserName(userName));
+        return "userCenter";
     }
 }
