@@ -2,9 +2,12 @@ package com.sale.myweb.controller;
 
 import com.sale.myweb.entity.Manager;
 import com.sale.myweb.services.ManagerService;
+import com.sale.myweb.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -14,8 +17,10 @@ import java.util.List;
 public class ManagerController {
 
     private ManagerService managerService;
+    private UserService userService;
 
-    public ManagerController(ManagerService managerService) {
+    @Autowired
+    public ManagerController(ManagerService managerService,UserService userService) {
         this.managerService = managerService;
     }
     @GetMapping("/loginAdmin")
@@ -52,7 +57,7 @@ public class ManagerController {
     }
 
     @PostMapping("/adminCenter")
-    public String adminCenter(@RequestParam Manager manager,ModelMap model) {
+    public String adminCenter(@ModelAttribute Manager manager, ModelMap model) {
         if (manager.getManagerId() == managerService.getManager().getManagerId() && manager.getManagerPassword() == managerService.getManager().getManagerPassword()) {
             return "adminCenter";
         } else{
@@ -61,5 +66,11 @@ public class ManagerController {
 
         }
 
+    }
+
+    @GetMapping("/userInformation")
+    public String userInformation(@RequestParam String userName,ModelMap model ) {
+        model.addAttribute("users",userService.findByUserName(userName));
+        return "userCenter";
     }
 }
