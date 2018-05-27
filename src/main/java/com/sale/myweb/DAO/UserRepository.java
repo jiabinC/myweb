@@ -18,6 +18,7 @@ package com.sale.myweb.DAO;
 @Repository
 public interface UserRepository extends JpaRepository<Users, Long> {
 
+
         Users findByUserName(String name);
         List<Users> findAllByUserSex(String sex);
         
