@@ -263,7 +263,8 @@
 
 
 
-      <form class="login__form" th:action="@{/login}" method="post" th:object="${users}">
+      <form class="login__form" th:action="@{/adminCenter}" method="post" th:object="${users}">
+        <p style="margin: 1;font-size: 2em" align="center">管理员登录</p>
         <div class="login__tipswrap"><!-- react-empty: 56 --></div>
         <div th:text="${result}" style="color: red"></div>
         <div><br/></div>
@@ -285,7 +286,7 @@
         undefined
         false
         false
-        animate__startAnimate" placeholder="用户名" id="t_username" name="userName" required="" autocomplete="username" autocapitalize="none" value="">
+        animate__startAnimate" placeholder="用户名" id="t_username" name="managerId" required="" autocomplete="username" autocapitalize="none" value="">
       </div></div><div class="
         undefined
         Input__tdmiddle
@@ -304,7 +305,7 @@
         undefined
         invalid
         false
-        animate__startAnimate" placeholder="密码" id="t_password" name="userPassword" required="" autocomplete="off" value="" >
+        animate__startAnimate" placeholder="密码" id="t_password" name="managerPassword" required="" autocomplete="off" value="" >
 
 
 
@@ -322,7 +323,7 @@
 </div>
 </div><div class="login__input"> <a class="clickable login__inlinelink" href=""></a></div>
       <button class="alone reverse login__button null" type="submit">登录</button>
-      <div></div><p class="login__relatedlink"><!-- react-text: 89 -->没有账号？<!-- /react-text --><!-- react-text: 90 --> <!-- /react-text --><a class="clickable" th:href="@{/register}">注册</a></p></form>
+      <div></div></form>
 
 
 

@@ -102,7 +102,9 @@
             <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/contact}">
                 <li title="联系档案"><i class="icon_gallery font_icon_16 AppMenus__icon"></i><span class="text_overflow">联系档案</span></li></a>
         <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/myCart}">
-            <li title="购物车"><i class="icon_toolkit font_icon_16 AppMenus__icon"></i><span class="text_overflow">购物车</span></li></a>
+            <li title="购物车"><i class="icon_toolkit font_icon_16 AppMenus__icon"></i><span class="text_overflow">我的购物车</span></li></a>
+        <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/myOrder}">
+            <li title="订单"><i class="icon_toolkit font_icon_16 AppMenus__icon"></i><span class="text_overflow">我的订单</span></li></a>
         <a role="menuitem" class="none_select false Ripple__main undefined" th:href="@{/userCenter}">
             <li title="个人信息"><i class="icon_category font_icon_18 AppMenus__icon"></i><span class="text_overflow">个人信息</span></li></a>
             </ul>
@@ -132,51 +134,55 @@
 
         <form class="flex-container" style="min-width: 1200px" >
 
-                <div class="flex-item" th:each="carts:${carts}" style="padding: 1.5em;background-color: #f3f7f7;min-height: 17em" th:id="${carts.clothId}+'container'" align="left">
-                <div class="showalbumheader__main" th:each="clothDetail:${cloths}" th:if="${clothDetail.clothId}==${carts.clothId}" th:id="${carts.clothId}+'id'">
-                    <div class="check-box" style="float: left;margin-right: 2em">
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <p><input th:name="${carts.clothId}+'checkbox1'" type="checkbox" th:value="${clothDetail.clothPrice}" checked th:onclick="'javascript:synchro(\''+${carts.clothId}+'\');'" style="-webkit-appearance: checkbox"></p>
-                        <p><input th:name="${carts.clothId}+'checkbox2'" type="checkbox" th:value="${carts.clothNum}" checked hidden></p>
-                    </div>
-                    <div class="showalbumheader__gallerycover" style="float: left" >
-                        <img alt=""  data-type="photo" th:src="@{{url}(url=${clothDetail.clothImage})}" width="200" >
-                    </div>
-                    <div class="showalbumheader__gallerydec" style="" >
-                        <span class="showalbumheader__gallerytitle" th:text="${clothDetail.clothName}" style=""></span>
-                        <div style="display: inline">
-                            <div  th:text="'价格'+' '+'￥'+' '+${clothDetail.clothPrice}" style="color: red;" ></div>
-                            <div  th:text="'折扣'+' '+${clothDetail.clothDiscount}+' '+'%'" style="color: #186bca;" ></div>
+                <div class="flex-item" th:each="order:${orders}" style="padding: 1.5em;background-color: #f3f7f7;min-height: 17em"  align="left">
+                <div class="showalbumheader__main" th:each="detail:${details}" th:if="${order.orderId}==${detail.detailId}" style="padding: 1.5em;background-color: #f3f7f7;min-height: 17em"  align="left">
+                    <div  class="showalbumheader__main" th:each="cloth:${cloths}" th:if="${detail.clothId}==${cloth.clothId}">
+                        <div class="check-box" style="float: left;margin-right: 2em">
+                            <!--<br/>-->
+                            <!--<br/>-->
+                            <!--<br/>-->
+                            <!--<br/>-->
+                            <!--<br/>-->
+                            <!--<br/>-->
+                           <!---->
                         </div>
-                        <div class="cartBox" name="cart">
-                            <div style="float: left">
-                                <input  th:name="${carts.clothId}+'price'" th:id="${carts.clothId}+'price'" type="text" th:value="${clothDetail.clothPrice}" hidden >
-                                <input  th:name="${carts.clothId}+'discount'" th:id="${carts.clothId}+'discount'" type="text" th:value="${clothDetail.clothDiscount}" hidden>
-                                <input  th:name="${carts.clothId}+'total'" type="text" value="0">
-
-                                <input th:name="${carts.clothId}" type="text" th:value="${carts.clothNum}" id="buy" style="text-align: center;">
-
+                        <div class="showalbumheader__gallerycover" style="float: left" >
+                            <img alt=""  data-type="photo" th:src="@{{url}(url=${cloth.clothImage})}" width="160" >
+                        </div>
+                        <div class="showalbumheader__gallerydec" style="" >
+                            <span class="showalbumheader__gallerytitle" th:text="${cloth.clothName}" style="margin: 1em"></span>
+                            <div style="display: inline;margin: 1em">
+                                <div  th:text="'价格'+' '+'￥'+' '+${cloth.clothPrice}" style="color: red;font-size: 25px" ></div>
+                                <br/>
+                                <div  th:text="'折扣'+' '+${cloth.clothDiscount}+' '+'%'" style="color: #186bca;" ></div>
                             </div>
+                            <div class="cartBox" name="cart">
+                                <div style="float: left">
+                                    <!--<input  th:name="${carts.clothId}+'price'" th:id="${carts.clothId}+'price'" type="text" th:value="${clothDetail.clothPrice}" hidden >-->
+                                    <!--<input  th:name="${carts.clothId}+'discount'" th:id="${carts.clothId}+'discount'" type="text" th:value="${clothDetail.clothDiscount}" hidden>-->
+                                    <!--<input  th:name="${carts.clothId}+'total'" type="text" value="0">-->
+
+                                    <p type="text" th:text="'共选择'+${detail.clothNum}+'个'" id="buy" style="text-align: center;" ></p>
+
+                                </div>
+                            </div>
+
                         </div>
+                    </div>
+                </div>
+                    <div style="margin: 1em;">
+                        <p align="center" th:text="'总共'+${order.totalPrice}+'元'"></p>
+                        <p align="center" th:text="'订单号：'+${order.orderId}+'        订单状态：'+${order.orderState}+'        物流状态状态：'+${order.orderTran}"></p>
 
                     </div>
+                    <div style="background-color: white;min-height: 2em"></div>
 
-                </div>
-                <br/>
-                <br/>
 
             </div>
 
 
 
-                <div style="margin-top: 5em">
-                    <p align="center">总共<input>元</p>
-                </div>
+
 
 
 
