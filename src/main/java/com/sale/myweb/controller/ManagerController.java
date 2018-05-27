@@ -1,9 +1,12 @@
 package com.sale.myweb.controller;
 
+import com.sale.myweb.entity.Manager;
 import com.sale.myweb.services.ManagerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -42,5 +45,10 @@ public class ManagerController {
         model.addAttribute("allCloths",allCloths);
 
         return "clothInformation";
+    }
+
+    @PostMapping("/adminCenter")
+    public String adminCenter(@RequestParam Manager manager) {
+        return "adminCenter";
     }
 }
