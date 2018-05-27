@@ -10,12 +10,13 @@ import java.io.Serializable;
 public class Orders implements Serializable {
 
     Orders(){}
-    public Orders(String userAddress,String orderState,String userTel,String orderTran,String userId) {
+    public Orders(String userAddress,String orderState,String userTel,String orderTran,String userId,String totalPrice) {
         this.userAddress = userAddress;
         this.orderState = orderState;
         this.userTel = userTel;
         this.orderTran = orderTran;
         this.userId = userId;
+        this.totalPrice = totalPrice;
     }
 
     @Id
@@ -36,6 +37,9 @@ public class Orders implements Serializable {
 
     @Column
     private String userId;
+
+    @Column
+    private String totalPrice;
 
 
 
@@ -87,6 +91,13 @@ public class Orders implements Serializable {
         this.userTel = userTel;
     }
 
+    public String getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(String totalPrice) {
+        this.totalPrice = totalPrice;
+    }
 }
 
 

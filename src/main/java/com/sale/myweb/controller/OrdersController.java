@@ -40,7 +40,12 @@ public class OrdersController {
 //        Detail detail1 = detailSercice.addDetail(detail);
 //        String detailId =  detail1.getDetailId();
 
-        Orders orders = new Orders(users.getUserAddress(),"审核中",users.getUserTel(),"待交付",users.getUserId());
+        double totalPrice=0 ;
+        for (int i=0;i<split.length;i++) {
+          totalPrice = Double.parseDouble(split[i].split(",")[0]) * Double.parseDouble(split[i].split(",")[1])*Double.parseDouble(clothService.findByclothId(split[i].split(",")[0]).getClothDiscount())*0.01;
+
+        }
+        Orders orders = new Orders(users.getUserAddress(),"审核中",users.getUserTel(),"待交付",users.getUserId(),String.valueOf(totalPrice));
         Orders orders1 = orderService.produceOrder(orders);
         int k;
         for (k =0;k < split.length; k++ ) {
