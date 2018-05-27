@@ -10,23 +10,18 @@ import java.io.Serializable;
 public class Orders implements Serializable {
 
     Orders(){}
-    public Orders(String userAddress,String orderState,String userTel,String orderTran,String detailId,String userId) {
+    public Orders(String userAddress,String orderState,String userTel,String orderTran,String userId) {
         this.userAddress = userAddress;
-        this.detailId = detailId;
         this.orderState = orderState;
         this.userTel = userTel;
         this.orderTran = orderTran;
         this.userId = userId;
-
     }
 
     @Id
     @GenericGenerator(name="system-uuid",strategy = "uuid")
     @GeneratedValue(generator = "system-uuid")
     private String orderId;
-
-
-
 
 
     @Column
@@ -41,9 +36,6 @@ public class Orders implements Serializable {
 
     @Column
     private String userId;
-
-    @Column
-    private String  detailId;
 
 
 
@@ -79,10 +71,6 @@ public class Orders implements Serializable {
         this.userId = userId;
     }
 
-    public void setDetailId(String detailId) {
-        this.detailId = detailId;
-    }
-
     public void setOrderTran(String orderTran) {
         this.orderTran = orderTran;
     }
@@ -99,9 +87,6 @@ public class Orders implements Serializable {
         this.userTel = userTel;
     }
 
-    public String getDetailId() {
-        return detailId;
-    }
 }
 
 

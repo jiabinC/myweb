@@ -16,11 +16,11 @@ public class OrderService {
     public OrderService( OrdersRepository ordersRepository) {
         this.ordersRepository = ordersRepository;
     }
-    public String produceOrder(Orders orders) {
+    public Orders produceOrder(Orders orders) {
 
-        ordersRepository.save(orders);
+        return ordersRepository.save(orders);
 
-        return "success";
+
     }
 
 

@@ -1,6 +1,8 @@
 package com.sale.myweb.entity;
 
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -13,9 +15,13 @@ public class Detail {
         this.clothId = clothId;
         this.clothNum = clothNum;
     }
+    public Detail(String detailId,String clothId,String clothNum) {
+        this.detailId = detailId;
+        this.clothId = clothId;
+        this.clothNum = clothNum;
+    }
 
     @Id
-    @GeneratedValue
     private String detailId;
 
     @Id
