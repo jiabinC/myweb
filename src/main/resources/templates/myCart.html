@@ -97,11 +97,14 @@
 
 
             result+=tempR;
-            alert(result);
+
             document.getElementsByName(nametag+"bt-")[0].disabled=true;
             document.getElementsByName(nametag+"bt+")[0].disabled=true;
             document.getElementsByName(nametag+"btl")[0].disabled=true;
             document.getElementsByName(nametag)[0].disabled=true;
+            document.getElementsByName("value")[0].value=result;
+
+
         }
 
     </script>
@@ -219,7 +222,7 @@
         <br/>
         <br/>
 
-        <form class="flex-container" style="min-width: 1200px" >
+        <form class="flex-container" style="min-width: 1200px" th:action="@{generateOrder}" method="post" >
 
                 <div class="flex-item" th:each="carts:${carts}" style="padding: 1.5em;background-color: #f3f7f7;min-height: 17em" th:id="${carts.clothId}+'container'" align="left">
                 <div class="showalbumheader__main" th:each="clothDetail:${cloths}" th:if="${clothDetail.clothId}==${carts.clothId}" th:id="${carts.clothId}+'id'">
@@ -232,7 +235,7 @@
                         <br/>
                         <p><input th:name="${carts.clothId}+'checkbox1'" type="checkbox" th:value="${clothDetail.clothId}+','" checked th:onclick="'javascript:synchro(\''+${carts.clothId}+'\');'" style="-webkit-appearance: checkbox"></p>
                         <p><input th:name="${carts.clothId}+'checkbox2'" type="checkbox" th:value="${carts.clothNum}+'/'" checked hidden></p>
-                        <input type="button" th:onclick="'javascript:testcheck(\''+${carts.clothId}+'\');'" hiddengi>
+                        <input type="button" th:onclick="'javascript:testcheck(\''+${carts.clothId}+'\');'" hidden>
                     </div>
                     <div class="showalbumheader__gallerycover" style="float: left" >
                         <img alt=""  data-type="photo" th:src="@{{url}(url=${clothDetail.clothImage})}" width="200" >
@@ -268,6 +271,7 @@
 
                 <div style="margin-top: 5em">
                 <p align="center">总共<input>元</p>
+                <input type="button" value="" name="value">
                 <button class="alone reverse login__button null" type="submit">提交订单</button>
                 </div>
 
