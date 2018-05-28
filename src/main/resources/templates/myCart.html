@@ -230,7 +230,6 @@
         <br/>
 
         <form class="flex-container" style="min-width: 1200px" th:action="@{generateOrder}" method="post" >
-
                 <div class="flex-item" th:each="carts:${carts}" style="padding: 1.5em;background-color: #f3f7f7;min-height: 17em" th:id="${carts.clothId}+'container'" align="left">
                 <div class="showalbumheader__main" th:each="clothDetail:${cloths}" th:if="${clothDetail.clothId}==${carts.clothId}" th:id="${carts.clothId}+'id'">
                     <div class="check-box" style="float: left;margin-right: 2em">
@@ -267,7 +266,7 @@
                                 <input th:name="${carts.clothId}+'bt-'" type="button" value="-"  th:onclick="'javascript:bb(\''+${carts.clothId}+'\');'" style="-webkit-appearance: button">
                                 <input th:name="${carts.clothId}" type="text" th:value="${carts.clothNum}" id="buy" style="text-align: center;-webkit-appearance: textarea">
                                 <input th:name="${carts.clothId}+'bt+'" type="button" value="+" th:onclick="'javascript:aa(\''+${carts.clothId}+'\');'" style="-webkit-appearance: button">
-                                <input th:name="${carts.clothId}+'btl'" type="button" value="lock" th:onclick="'javascript:lock(\''+${carts.clothId}+'\');'" style="-webkit-appearance: button">
+                                <input th:name="${carts.clothId}+'btl'" type="button" value="确认" th:onclick="'javascript:lock(\''+${carts.clothId}+'\');'" style="-webkit-appearance: button">
                             </div>
                         </div>
 
@@ -278,18 +277,11 @@
                 <br/>
 
             </div>
-
-
-
                 <div style="margin-top: 5em">
-                <p align="center">总共<input>元</p>
-
-                <input type="text" value="" name="value">
+                <p align="center" hidden>总共<input>元</p>
+                <input type="text" value="" name="value" hidden>
                 <button class="alone reverse login__button null" type="submit">提交订单</button>
                 </div>
-
-
-
         </form>
 
     </div>
